@@ -1,0 +1,6 @@
+package.json
+package-lock.json
+README.md
+*.min.css
+*.min.js
+eslint.config.mjs

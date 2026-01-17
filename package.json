@@ -1,0 +1,55 @@
+{
+  "name": "webtools-nuxt",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "eslint . && nuxt build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "dev": "eslint . && nuxt dev --dotenv .env.local --host 0.0.0.0 --port 80",
+    "dev:dev": "eslint . && nuxt dev --dotenv .env.dev --host 0.0.0.0 --port 80",
+    "dev:staging": "eslint . && nuxt dev --dotenv .env.staging --host 0.0.0.0 --port 80",
+    "dev:prod": "eslint . && nuxt dev --dotenv .env.prod --host 0.0.0.0 --port 80",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "builddeploy:dev": "npm ci && npm run build && pm2 startOrReload ecosystem.dev.config.cjs",
+    "builddeploy:staging": "npm ci && npm run build && pm2 startOrReload ecosystem.staging.config.cjs",
+    "builddeploy:prod": "npm ci && npm run build && pm2 startOrReload ecosystem.prod.config.cjs",
+    "deploy:dev": "pm2 startOrReload ecosystem.dev.config.cjs",
+    "deploy:staging": "pm2 startOrReload ecosystem.staging.config.cjs",
+    "deploy:prod": "pm2 startOrReload ecosystem.prod.config.cjs"
+  },
+  "dependencies": {
+    "@nuxt/eslint": "^1.10.0",
+    "@nuxt/icon": "^2.1.0",
+    "@nuxt/image": "^2.0.0",
+    "@nuxt/scripts": "^0.13.0",
+    "@nuxtjs/i18n": "^10.2.1",
+    "@pinia/nuxt": "^0.11.3",
+    "@unhead/vue": "^2.0.19",
+    "@vueuse/core": "^14.1.0",
+    "dayjs": "^1.11.19",
+    "eslint": "^9.39.1",
+    "jwt-decode": "^4.0.0",
+    "lodash-es": "^4.17.21",
+    "nuxt": "^4.2.1",
+    "pinia-plugin-persistedstate": "^4.7.1",
+    "swiper": "^12.0.3",
+    "vue": "^3.5.24",
+    "vue-router": "^4.6.3",
+    "vuedraggable": "^4.1.0"
+  },
+  "devDependencies": {
+    "@iconify-json/mdi": "^1.2.3",
+    "@types/lodash-es": "^4.17.12",
+    "prettier": "^3.6.2",
+    "sass-embedded": "^1.93.3",
+    "vite-plugin-eslint2": "^5.0.4"
+  },
+  "overrides": {
+    "vue-i18n": "^11.2.8"
+  }
+}

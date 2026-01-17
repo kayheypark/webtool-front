@@ -1,0 +1,24 @@
+/* 레이아웃 기본 스타일 - SSR 시점에 즉시 적용 */
+.fe-wrap {
+  background-color: #ffffff;
+}
+
+.fe-layout-wrap {
+  background-color: #ffffff;
+  height: 100vh;
+  overflow: auto;
+}
+
+.fe-layout-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.fe-layout-container {
+  margin: 0 auto;
+  background-color: white;
+  min-height: 100vh;
+}
+
+.fe-page-content.hidden {
+  visibility: hidden;
+}
