@@ -35,29 +35,18 @@ export const useIPInfoStore = defineStore('ipInfo', {
       }
 
       try {
-        // ipify API로 IP 주소 가져오기
-        const ipResponse = await fetch('https://api.ipify.org?format=json')
-        const ipData = await ipResponse.json()
-        const ip = ipData.ip
+        // Nuxt API를 통해 IP 정보 가져오기
+        const data = await $fetch<{
+          ip: string
+          country?: string
+          region?: string
+          city?: string
+          isp?: string
+        }>('/api/ip-info')
 
-        // ip-api로 상세 정보 가져오기
-        const detailResponse = await fetch(`http://ip-api.com/json/${ip}`)
-        const detailData = await detailResponse.json()
-
-        if (detailData.status === 'success') {
-          this.ipInfo = {
-            ip,
-            country: detailData.country,
-            region: detailData.regionName,
-            city: detailData.city,
-            isp: detailData.isp,
-            fetchedAt: Date.now(),
-          }
-        } else {
-          this.ipInfo = {
-            ip,
-            fetchedAt: Date.now(),
-          }
+        this.ipInfo = {
+          ...data,
+          fetchedAt: Date.now(),
         }
 
         return this.ipInfo
