@@ -43,7 +43,13 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'ko',
     langDir: 'locales',
-    detectBrowserLanguage: false,
+    strategy: 'prefix_except_default',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
+      alwaysRedirect: false,
+    },
   },
 
   css: [
@@ -97,7 +103,7 @@ export default defineNuxtConfig({
         '/auth/withdrawal': { title: '회원탈퇴', showAppBar: true },
         '/auth/withdrawal/complete': { title: '회원탈퇴 완료', showAppBar: true },
 
-        '/tools': { title: '웹툴', showAppBar: true },
+        '/tools': { title: '유틸리티', showAppBar: true },
         '/tools/character-counter': { title: '문자 수 세기', showAppBar: true },
         '/tools/my-ip': { title: '내 아이피', showAppBar: true },
         '/tools/uuid-generator': { title: 'UUID 생성기', showAppBar: true },

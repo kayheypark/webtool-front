@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { t } = useI18n()
 const text = ref('')
 
 const characterCount = computed(() => text.value.length)
@@ -31,37 +32,36 @@ const { showToast } = useToast()
 const handleCopy = async () => {
   try {
     await navigator.clipboard.writeText(text.value)
-    showToast('복사되었습니다')
+    showToast(t('common.copied'))
   } catch (error) {
     console.error('복사 실패:', error)
-    showToast('복사에 실패했습니다')
+    showToast(t('common.copyFailed'))
   }
 }
 
 useHead({
-  title: '글자수 세기 - 무설치 유팉리티',
+  title: `${t('tools.characterCounter.title')} - ${t('common.title')}`,
   meta: [
     {
       name: 'description',
-      content:
-        '텍스트의 글자 수, 단어 수, 바이트 수를 실시간으로 확인할 수 있는 글자수 세기 도구입니다. 공백 제외 글자 수, 줄 수도 함께 확인하세요.',
+      content: t('tools.characterCounter.description'),
     },
     { name: 'keywords', content: '글자수세기, 단어수세기, 바이트계산, 텍스트분석, 문자수카운터' },
     // Open Graph
     { property: 'og:type', content: 'website' },
-    { property: 'og:title', content: '글자수 세기 - 무설치 유팉리티' },
+    { property: 'og:title', content: `${t('tools.characterCounter.title')} - ${t('common.title')}` },
     {
       property: 'og:description',
-      content: '텍스트의 글자 수, 단어 수, 바이트 수를 실시간으로 확인할 수 있는 글자수 세기 도구',
+      content: t('tools.characterCounter.description'),
     },
-    { property: 'og:site_name', content: '무설치 유틸리티' },
+    { property: 'og:site_name', content: t('common.title') },
     { property: 'og:locale', content: 'ko_KR' },
     // Twitter Card
     { name: 'twitter:card', content: 'summary' },
-    { name: 'twitter:title', content: '글자수 세기 - 무설치 유팉리티' },
+    { name: 'twitter:title', content: `${t('tools.characterCounter.title')} - ${t('common.title')}` },
     {
       name: 'twitter:description',
-      content: '텍스트의 글자 수, 단어 수, 바이트 수를 실시간으로 확인',
+      content: t('tools.characterCounter.description'),
     },
   ],
   script: [
@@ -93,8 +93,8 @@ useHead({
 
     <!-- Header -->
     <div class="header">
-      <h1 class="header-title">글자수 세기</h1>
-      <p class="header-description">텍스트를 입력하면 실시간으로 글자 수를 확인할 수 있습니다</p>
+      <h1 class="header-title">{{ $t('tools.characterCounter.title') }}</h1>
+      <p class="header-description">{{ $t('tools.characterCounter.description') }}</p>
     </div>
 
     <!-- Main Content -->
@@ -105,18 +105,18 @@ useHead({
           <textarea
             v-model="text"
             class="textarea"
-            placeholder="여기에 텍스트를 입력하세요..."
+            :placeholder="$t('tools.characterCounter.placeholder')"
             rows="16"
             @input="(e) => (text = (e.target as HTMLTextAreaElement).value)"
           />
           <div class="button-group">
             <button class="btn btn-secondary" @click="handleClear">
               <Icon name="mdi:delete" />
-              초기화
+              {{ $t('common.reset') }}
             </button>
             <button class="btn btn-primary" @click="handleCopy">
               <Icon name="mdi:content-copy" />
-              복사
+              {{ $t('common.copy') }}
             </button>
           </div>
         </div>
@@ -125,7 +125,7 @@ useHead({
       <!-- Stats -->
       <div class="stats-section">
         <div class="stat-card primary">
-          <div class="stat-label">총 글자 수</div>
+          <div class="stat-label">{{ $t('tools.characterCounter.stats.characters') }}</div>
           <div class="stat-value">{{ characterCount.toLocaleString() }}</div>
         </div>
 
@@ -135,7 +135,7 @@ useHead({
               <Icon name="mdi:text" />
             </div>
             <div class="stat-info">
-              <div class="stat-small-label">공백 제외</div>
+              <div class="stat-small-label">{{ $t('tools.characterCounter.stats.charactersNoSpaces') }}</div>
               <div class="stat-small-value">
                 {{ characterCountWithoutSpaces.toLocaleString() }}
               </div>
@@ -147,7 +147,7 @@ useHead({
               <Icon name="mdi:format-text" />
             </div>
             <div class="stat-info">
-              <div class="stat-small-label">단어 수</div>
+              <div class="stat-small-label">{{ $t('tools.characterCounter.stats.words') }}</div>
               <div class="stat-small-value">{{ wordCount.toLocaleString() }}</div>
             </div>
           </div>
@@ -157,7 +157,7 @@ useHead({
               <Icon name="mdi:format-line-spacing" />
             </div>
             <div class="stat-info">
-              <div class="stat-small-label">줄 수</div>
+              <div class="stat-small-label">{{ $t('tools.characterCounter.stats.lines') }}</div>
               <div class="stat-small-value">{{ lineCount.toLocaleString() }}</div>
             </div>
           </div>
@@ -167,7 +167,7 @@ useHead({
               <Icon name="mdi:database" />
             </div>
             <div class="stat-info">
-              <div class="stat-small-label">바이트</div>
+              <div class="stat-small-label">{{ $t('tools.characterCounter.stats.bytes') }}</div>
               <div class="stat-small-value">{{ byteCount.toLocaleString() }}</div>
             </div>
           </div>
@@ -179,24 +179,24 @@ useHead({
     <div class="card info-section">
       <h2 class="info-title">
         <Icon name="mdi:information" />
-        사용 안내
+        {{ $t('tools.characterCounter.info.title') }}
       </h2>
       <ul class="info-list">
         <li class="info-item">
           <Icon name="mdi:check-circle" />
-          <span>텍스트 입력 시 실시간으로 글자 수가 계산됩니다</span>
+          <span>{{ $t('tools.characterCounter.info.item1') }}</span>
         </li>
         <li class="info-item">
           <Icon name="mdi:check-circle" />
-          <span>단어 수는 공백을 기준으로 계산됩니다</span>
+          <span>{{ $t('tools.characterCounter.info.item2') }}</span>
         </li>
         <li class="info-item">
           <Icon name="mdi:check-circle" />
-          <span>바이트 수는 UTF-8 인코딩 기준입니다</span>
+          <span>{{ $t('tools.characterCounter.info.item3') }}</span>
         </li>
         <li class="info-item">
           <Icon name="mdi:check-circle" />
-          <span>복사 버튼으로 텍스트를 클립보드에 복사할 수 있습니다</span>
+          <span>{{ $t('tools.characterCounter.info.item4') }}</span>
         </li>
       </ul>
     </div>

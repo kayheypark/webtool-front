@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { t } = useI18n()
 const uuids = ref<string[]>([])
 const count = ref(1)
 
@@ -23,20 +24,20 @@ const { showToast } = useToast()
 const copyToClipboard = async (text: string) => {
   try {
     await navigator.clipboard.writeText(text)
-    showToast('복사되었습니다')
+    showToast(t('common.copied'))
   } catch (error) {
-    console.error('복사 실패:', error)
-    showToast('복사에 실패했습니다')
+    console.error('Copy failed:', error)
+    showToast(t('common.copyFailed'))
   }
 }
 
 const copyAll = async () => {
   try {
     await navigator.clipboard.writeText(uuids.value.join('\n'))
-    showToast('모두 복사되었습니다')
+    showToast(t('tools.uuidGenerator.copiedAll'))
   } catch (error) {
-    console.error('복사 실패:', error)
-    showToast('복사에 실패했습니다')
+    console.error('Copy failed:', error)
+    showToast(t('common.copyFailed'))
   }
 }
 
@@ -45,24 +46,23 @@ onMounted(() => {
 })
 
 useHead({
-  title: 'UUID 생성기 - 무설치 유팉리티',
+  title: `${t('tools.uuidGenerator.title')} - ${t('common.title')}`,
   meta: [
     {
       name: 'description',
-      content:
-        'UUID(Universally Unique Identifier)를 생성하는 도구입니다. UUID v4 형식으로 고유한 식별자를 생성하고 복사할 수 있습니다.',
+      content: t('tools.uuidGenerator.metaDescription'),
     },
-    { name: 'keywords', content: 'UUID생성기, GUID생성기, 고유식별자, UUID생성, 랜덤UUID' },
+    { name: 'keywords', content: 'UUID, GUID, UUID Generator, Random UUID, UUID v4' },
     // Open Graph
     { property: 'og:type', content: 'website' },
-    { property: 'og:title', content: 'UUID 생성기 - 무설치 유팉리티' },
-    { property: 'og:description', content: 'UUID v4 형식으로 고유한 식별자를 생성' },
-    { property: 'og:site_name', content: '무설치 유틸리티' },
+    { property: 'og:title', content: `${t('tools.uuidGenerator.title')} - ${t('common.title')}` },
+    { property: 'og:description', content: t('tools.uuidGenerator.description') },
+    { property: 'og:site_name', content: t('common.title') },
     { property: 'og:locale', content: 'ko_KR' },
     // Twitter Card
     { name: 'twitter:card', content: 'summary' },
-    { name: 'twitter:title', content: 'UUID 생성기 - 무설치 유팉리티' },
-    { name: 'twitter:description', content: 'UUID v4 형식으로 고유한 식별자를 생성' },
+    { name: 'twitter:title', content: `${t('tools.uuidGenerator.title')} - ${t('common.title')}` },
+    { name: 'twitter:description', content: t('tools.uuidGenerator.description') },
   ],
   script: [
     {
@@ -70,8 +70,8 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebApplication',
-        name: 'UUID 생성기',
-        description: 'UUID(Universally Unique Identifier)를 생성하는 도구',
+        name: t('tools.uuidGenerator.title'),
+        description: t('tools.uuidGenerator.description'),
         applicationCategory: 'UtilityApplication',
         offers: {
           '@type': 'Offer',
@@ -91,64 +91,122 @@ useHead({
       <CommonShareButton />
     </div>
 
+    <!-- Header -->
     <div class="header">
-      <h1 class="header-title">UUID 생성기</h1>
-      <p class="header-description">고유한 UUID를 생성하세요</p>
+      <h1 class="header-title">{{ $t('tools.uuidGenerator.title') }}</h1>
+      <p class="header-description">{{ $t('tools.uuidGenerator.description') }}</p>
     </div>
 
-    <div class="content">
-      <div class="card control-card">
-        <div class="control-group">
-          <label class="control-label">생성 개수</label>
-          <input v-model.number="count" type="number" min="1" max="100" class="control-input" />
+    <!-- Main Result Display -->
+    <div v-if="uuids.length > 0" class="result-section">
+      <!-- Single UUID Display -->
+      <div v-if="uuids.length === 1" class="single-result card">
+        <div class="uuid-display">
+          <code class="uuid-code">{{ uuids[0] }}</code>
         </div>
-        <div class="button-group">
-          <button class="btn btn-primary" @click="handleGenerate">
+        <div class="result-actions">
+          <button class="btn btn-primary" @click="copyToClipboard(uuids[0] ?? '')">
+            <Icon name="mdi:content-copy" />
+            {{ $t('common.copy') }}
+          </button>
+          <button class="btn btn-secondary" @click="handleGenerate">
             <Icon name="mdi:refresh" />
-            생성
-          </button>
-          <button v-if="uuids.length > 0" class="btn btn-secondary" @click="copyAll">
-            <Icon name="mdi:content-copy" />
-            모두 복사
+            {{ $t('common.generate') }}
           </button>
         </div>
       </div>
 
-      <div v-if="uuids.length > 0" class="uuid-list">
-        <div v-for="(uuid, index) in uuids" :key="index" class="uuid-item card">
-          <code class="uuid-code">{{ uuid }}</code>
-          <button class="btn-copy-small" @click="copyToClipboard(uuid)">
+      <!-- Multiple UUIDs Display -->
+      <div v-else class="multiple-results">
+        <div class="result-header">
+          <h3 class="result-title">
+            {{ $t('tools.uuidGenerator.generatedUuids') }} ({{ uuids.length }})
+          </h3>
+          <button class="btn btn-primary btn-sm" @click="copyAll">
             <Icon name="mdi:content-copy" />
+            {{ $t('tools.uuidGenerator.copyAll') }}
           </button>
         </div>
+        <div class="uuid-list card">
+          <div
+            v-for="(uuid, index) in uuids"
+            :key="index"
+            class="uuid-item"
+            @click="copyToClipboard(uuid)"
+          >
+            <span class="uuid-index">{{ index + 1 }}</span>
+            <span class="uuid-text">{{ uuid }}</span>
+            <button class="uuid-copy-btn" @click.stop="copyToClipboard(uuid)">
+              <Icon name="mdi:content-copy" />
+            </button>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <div class="card info-section">
-        <h2 class="info-title">
-          <Icon name="mdi:information" />
-          UUID란?
-        </h2>
-        <ul class="info-list">
-          <li class="info-item">
-            <Icon name="mdi:check-circle" />
-            <span>UUID는 범용 고유 식별자로, 중복 가능성이 거의 없는 고유한 ID입니다</span>
-          </li>
-          <li class="info-item">
-            <Icon name="mdi:check-circle" />
-            <span>Version 4 UUID를 생성하며, 무작위로 생성됩니다</span>
-          </li>
-          <li class="info-item">
-            <Icon name="mdi:check-circle" />
-            <span>데이터베이스 ID, 파일명, 세션 ID 등에 사용됩니다</span>
-          </li>
-        </ul>
+    <!-- Controls -->
+    <div class="card controls">
+      <h3 class="controls-title">{{ $t('tools.uuidGenerator.options') }}</h3>
+      <div class="control-row">
+        <div class="control-group">
+          <label for="count" class="control-label">{{ $t('tools.uuidGenerator.quantity') }}</label>
+          <div class="quantity-input-wrapper">
+            <button
+              class="quantity-btn"
+              :disabled="count <= 1"
+              @click="count = Math.max(1, count - 1)"
+            >
+              <Icon name="mdi:minus" />
+            </button>
+            <input
+              id="count"
+              v-model.number="count"
+              type="number"
+              min="1"
+              max="100"
+              class="control-input"
+            />
+            <button
+              class="quantity-btn"
+              :disabled="count >= 100"
+              @click="count = Math.min(100, count + 1)"
+            >
+              <Icon name="mdi:plus" />
+            </button>
+          </div>
+        </div>
       </div>
+      <button class="btn btn-primary btn-full" @click="handleGenerate">
+        <Icon name="mdi:refresh" />
+        {{ $t('common.generate') }} {{ count > 1 ? `(${count})` : '' }}
+      </button>
+    </div>
+
+    <!-- Info -->
+    <div class="card info-section">
+      <h2 class="info-title">
+        <Icon name="mdi:information" />
+        {{ $t('tools.uuidGenerator.info.title') }}
+      </h2>
+      <ul class="info-list">
+        <li class="info-item">
+          <Icon name="mdi:check-circle" />
+          <span>{{ $t('tools.uuidGenerator.info.item1') }}</span>
+        </li>
+        <li class="info-item">
+          <Icon name="mdi:check-circle" />
+          <span>{{ $t('tools.uuidGenerator.info.item2') }}</span>
+        </li>
+        <li class="info-item">
+          <Icon name="mdi:check-circle" />
+          <span>{{ $t('tools.uuidGenerator.info.item3') }}</span>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-// 페이지 고유 스타일만 작성
 .page-header {
   display: flex;
   justify-content: space-between;
@@ -156,85 +214,310 @@ useHead({
   margin-bottom: 16px;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+// Result Section
+.result-section {
+  margin-bottom: 24px;
 }
 
-.control-card {
-  display: flex;
-  gap: 16px;
-  align-items: flex-end;
+.single-result {
+  padding: 32px;
+  text-align: center;
 
-  @media (max-width: 640px) {
-    flex-direction: column;
-    align-items: stretch;
+  @media (max-width: 768px) {
+    padding: 24px 16px;
   }
 }
 
+.uuid-display {
+  margin-bottom: 24px;
+  padding: 24px;
+  background: var(--fe-gray-50);
+  border-radius: 12px;
+  border: 2px solid var(--fe-border-light);
+}
+
+.uuid-code {
+  font-family:
+    'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--fe-primary);
+  letter-spacing: 0.5px;
+  user-select: all;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    word-break: break-all;
+  }
+}
+
+.result-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    .btn {
+      width: 100%;
+    }
+  }
+}
+
+.multiple-results {
+  .result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+    }
+  }
+
+  .result-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--fe-gray-700);
+    margin: 0;
+  }
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 14px;
+
+  :deep(svg) {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.btn-full {
+  width: 100%;
+}
+
+// Controls
+.controls {
+  margin-bottom: 24px;
+  padding: 24px;
+
+  @media (max-width: 768px) {
+    padding: 20px 16px;
+    margin-bottom: 0;
+  }
+}
+
+.controls-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--fe-gray-700);
+  margin: 0 0 20px;
+}
+
+.control-row {
+  margin-bottom: 20px;
+}
+
 .control-group {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .control-label {
   display: block;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--fe-gray-700);
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .control-input {
-  width: 100%;
-  padding: 12px 16px;
-  border: 2px solid var(--fe-border-light);
-  border-radius: 8px;
+  flex: 1;
+  padding: 10px 16px;
   font-size: 15px;
-  color: var(--fe-gray-700);
-  transition: border-color 0.3s ease;
+  border: 1px solid var(--fe-border-light);
+  border-radius: 8px;
+  background: white;
+  transition: all 0.3s ease;
 
   &:focus {
     outline: none;
     border-color: var(--fe-primary);
+    box-shadow: 0 0 0 3px rgba(var(--fe-primary-rgb), 0.1);
+  }
+}
+
+.quantity-input-wrapper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--fe-border-light);
+  border-radius: 8px;
+  background: white;
+  overflow: hidden;
+  margin-top: 8px;
+
+  .control-input {
+    border: none;
+    border-radius: 0;
+    text-align: center;
+    width: 80px;
+    padding: 8px 4px;
+    font-size: 15px;
+    background: transparent;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+      background: var(--fe-gray-50);
+    }
+
+    /* Remove number input spinners */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      appearance: none;
+      margin: 0;
+    }
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+.quantity-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  color: var(--fe-gray-600);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+
+  :deep(svg) {
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover:not(:disabled) {
+    background: var(--fe-gray-50);
+    color: var(--fe-primary);
+  }
+
+  &:active:not(:disabled) {
+    background: var(--fe-gray-100);
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    color: var(--fe-gray-400);
+  }
+
+  &:first-of-type {
+    border-right: 1px solid var(--fe-border-light);
+  }
+
+  &:last-of-type {
+    border-left: 1px solid var(--fe-border-light);
   }
 }
 
 .uuid-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  padding: 16px;
+  max-height: 400px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--fe-gray-100);
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--fe-gray-400);
+    border-radius: 3px;
+
+    &:hover {
+      background: var(--fe-gray-500);
+    }
+  }
 }
 
 .uuid-item {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 16px;
-}
-
-.uuid-code {
-  flex: 1;
-  font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
-  font-size: 14px;
-  color: var(--fe-primary);
-  background: var(--fe-gray-50);
-  padding: 8px 12px;
+  padding: 12px;
   border-radius: 6px;
-  word-break: break-all;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: var(--fe-primary-light);
+  }
+
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--fe-border-light);
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px 8px;
+  }
 }
 
-.btn-copy-small {
+.uuid-index {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--fe-gray-100);
+  color: var(--fe-gray-600);
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+.uuid-text {
+  flex: 1;
+  font-family:
+    'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-size: 14px;
+  color: var(--fe-gray-800);
+  word-break: break-all;
+  user-select: all;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.uuid-copy-btn {
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: var(--fe-gray-50);
+  width: 32px;
+  height: 32px;
+  background: transparent;
   border: none;
-  border-radius: 8px;
-  color: var(--fe-gray-600);
+  color: var(--fe-gray-500);
   cursor: pointer;
   transition: all 0.3s ease;
 
@@ -244,27 +527,30 @@ useHead({
   }
 
   &:hover {
-    background: var(--fe-primary);
-    color: white;
+    color: var(--fe-primary);
   }
 }
 
 .info-section {
-  margin-top: 8px;
+  padding: 24px;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 }
 
 .info-title {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
-  color: var(--fe-gray-700);
-  margin: 0 0 20px;
+  color: var(--fe-gray-800);
+  margin: 0 0 16px;
 
   :deep(svg) {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     color: var(--fe-primary);
   }
 }
@@ -282,22 +568,16 @@ useHead({
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  padding: 12px;
-  background: var(--fe-gray-50);
-  border-radius: 8px;
-  font-size: 14px;
   color: var(--fe-gray-600);
-  line-height: 1.5;
+  font-size: 14px;
+  line-height: 1.6;
 
   :deep(svg) {
+    width: 18px;
+    height: 18px;
+    color: var(--fe-success);
     flex-shrink: 0;
-    width: 20px;
-    height: 20px;
-    color: var(--fe-primary);
     margin-top: 2px;
   }
-}
-
-@media (max-width: 768px) {
 }
 </style>

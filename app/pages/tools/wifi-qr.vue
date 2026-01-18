@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import QRCode from 'qrcode'
 
+const { t } = useI18n()
 const { showToast } = useToast()
 
 // WiFi 정보
@@ -16,12 +17,12 @@ const showQR = ref(false)
 // WiFi QR 코드 형식: WIFI:T:WPA;S:MyNetwork;P:MyPassword;H:false;;
 const generateWiFiString = () => {
   if (!ssid.value) {
-    showToast('네트워크 이름(SSID)을 입력하세요')
+    showToast(t('tools.wifiQr.invalidSsid'))
     return null
   }
 
   if (securityType.value !== 'nopass' && !password.value) {
-    showToast('비밀번호를 입력하세요')
+    showToast(t('tools.wifiQr.invalidPassword'))
     return null
   }
 
@@ -51,10 +52,10 @@ const generateQRCode = async () => {
       },
     })
     showQR.value = true
-    showToast('QR 코드가 생성되었습니다')
+    showToast(t('tools.wifiQr.generateSuccess'))
   } catch (error) {
-    console.error('QR 코드 생성 실패:', error)
-    showToast('QR 코드 생성에 실패했습니다')
+    console.error('QR code generation failed:', error)
+    showToast(t('tools.wifiQr.generateFailed'))
   }
 }
 
@@ -65,7 +66,7 @@ const downloadQRCode = () => {
   link.href = qrCodeUrl.value
   link.download = `wifi-${ssid.value || 'qrcode'}.png`
   link.click()
-  showToast('다운로드되었습니다')
+  showToast(t('common.downloaded'))
 }
 
 const copyToClipboard = async () => {
@@ -79,10 +80,10 @@ const copyToClipboard = async () => {
         [blob.type]: blob,
       }),
     ])
-    showToast('클립보드에 복사되었습니다')
+    showToast(t('common.copied'))
   } catch (error) {
-    console.error('복사 실패:', error)
-    showToast('복사에 실패했습니다')
+    console.error('Copy failed:', error)
+    showToast(t('common.copyFailed'))
   }
 }
 
@@ -96,32 +97,31 @@ const reset = () => {
 }
 
 useHead({
-  title: 'WiFi QR 코드 생성기 - 무설치 유틸리티',
+  title: `${t('tools.wifiQr.title')} - ${t('common.title')}`,
   meta: [
     {
       name: 'description',
-      content:
-        'WiFi 네트워크 정보를 QR 코드로 변환하여 간편하게 공유하세요. 스마트폰으로 QR 코드를 스캔하면 자동으로 WiFi에 연결됩니다.',
+      content: t('tools.wifiQr.metaDescription'),
     },
     {
       name: 'keywords',
-      content: 'WiFi QR코드, 와이파이 공유, QR코드 생성기, 네트워크 공유, WiFi 자동연결',
+      content: 'WiFi QR code, WiFi sharing, QR generator, network sharing, WiFi auto connect',
     },
     // Open Graph
     { property: 'og:type', content: 'website' },
-    { property: 'og:title', content: 'WiFi QR 코드 생성기 - 무설치 유틸리티' },
+    { property: 'og:title', content: `${t('tools.wifiQr.title')} - ${t('common.title')}` },
     {
       property: 'og:description',
-      content: 'WiFi 네트워크 정보를 QR 코드로 변환하여 간편하게 공유',
+      content: t('tools.wifiQr.description'),
     },
-    { property: 'og:site_name', content: '무설치 유틸리티' },
+    { property: 'og:site_name', content: t('common.title') },
     { property: 'og:locale', content: 'ko_KR' },
     // Twitter Card
     { name: 'twitter:card', content: 'summary' },
-    { name: 'twitter:title', content: 'WiFi QR 코드 생성기 - 무설치 유틸리티' },
+    { name: 'twitter:title', content: `${t('tools.wifiQr.title')} - ${t('common.title')}` },
     {
       name: 'twitter:description',
-      content: 'WiFi 네트워크 정보를 QR 코드로 변환하여 간편하게 공유',
+      content: t('tools.wifiQr.description'),
     },
   ],
   script: [
@@ -130,8 +130,8 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebApplication',
-        name: 'WiFi QR 코드 생성기',
-        description: 'WiFi 네트워크 정보를 QR 코드로 변환하는 도구',
+        name: t('tools.wifiQr.title'),
+        description: t('tools.wifiQr.description'),
         applicationCategory: 'UtilityApplication',
         offers: {
           '@type': 'Offer',
@@ -153,8 +153,8 @@ useHead({
 
     <!-- Header -->
     <div class="header">
-      <h1 class="header-title">WiFi QR 코드 생성기</h1>
-      <p class="header-description">WiFi 네트워크 정보를 QR 코드로 변환하여 간편하게 공유하세요</p>
+      <h1 class="header-title">{{ $t('tools.wifiQr.title') }}</h1>
+      <p class="header-description">{{ $t('tools.wifiQr.description') }}</p>
     </div>
 
     <div class="content">
@@ -162,12 +162,12 @@ useHead({
       <div class="card input-section">
         <h2 class="section-title">
           <Icon name="mdi:wifi" />
-          WiFi 정보 입력
+          {{ $t('tools.wifiQr.wifiInfoTitle') }}
         </h2>
 
         <div class="form-group">
           <label for="ssid" class="form-label">
-            네트워크 이름 (SSID)
+            {{ $t('tools.wifiQr.networkName') }}
             <span class="required">*</span>
           </label>
           <input
@@ -175,23 +175,23 @@ useHead({
             v-model="ssid"
             type="text"
             class="form-input"
-            placeholder="예: MyWiFi"
+            :placeholder="$t('tools.wifiQr.networkNamePlaceholder')"
             maxlength="32"
           />
         </div>
 
         <div class="form-group">
-          <label for="security" class="form-label">보안 방식</label>
+          <label for="security" class="form-label">{{ $t('tools.wifiQr.securityType') }}</label>
           <select id="security" v-model="securityType" class="form-select">
             <option value="WPA">WPA/WPA2/WPA3</option>
             <option value="WEP">WEP</option>
-            <option value="nopass">보안 없음</option>
+            <option value="nopass">{{ $t('tools.wifiQr.noSecurity') }}</option>
           </select>
         </div>
 
         <div v-if="securityType !== 'nopass'" class="form-group">
           <label for="password" class="form-label">
-            비밀번호
+            {{ $t('tools.wifiQr.password') }}
             <span class="required">*</span>
           </label>
           <input
@@ -199,7 +199,7 @@ useHead({
             v-model="password"
             type="text"
             class="form-input"
-            placeholder="WiFi 비밀번호 입력"
+            :placeholder="$t('tools.wifiQr.passwordPlaceholder')"
             maxlength="63"
           />
         </div>
@@ -207,18 +207,18 @@ useHead({
         <div class="form-group">
           <label class="checkbox-label">
             <input v-model="isHidden" type="checkbox" class="form-checkbox" />
-            <span>숨겨진 네트워크</span>
+            <span>{{ $t('tools.wifiQr.hidden') }}</span>
           </label>
         </div>
 
         <div class="button-group">
           <button class="btn btn-primary" @click="generateQRCode">
             <Icon name="mdi:qrcode" />
-            QR 코드 생성
+            {{ $t('tools.wifiQr.generateQR') }}
           </button>
           <button class="btn btn-secondary" @click="reset">
             <Icon name="mdi:refresh" />
-            초기화
+            {{ $t('common.reset') }}
           </button>
         </div>
       </div>
@@ -227,7 +227,7 @@ useHead({
       <div v-if="showQR" class="card qr-section">
         <h2 class="section-title">
           <Icon name="mdi:qrcode-scan" />
-          생성된 QR 코드
+          {{ $t('tools.wifiQr.generatedQR') }}
         </h2>
 
         <div class="qr-container">
@@ -236,29 +236,29 @@ useHead({
 
         <div class="qr-info">
           <div class="info-row">
-            <span class="info-label">네트워크:</span>
+            <span class="info-label">{{ $t('tools.wifiQr.network') }}:</span>
             <span class="info-value">{{ ssid }}</span>
           </div>
           <div class="info-row">
-            <span class="info-label">보안:</span>
+            <span class="info-label">{{ $t('tools.wifiQr.security') }}:</span>
             <span class="info-value">{{
-              securityType === 'nopass' ? '보안 없음' : securityType
+              securityType === 'nopass' ? $t('tools.wifiQr.noSecurity') : securityType
             }}</span>
           </div>
           <div v-if="isHidden" class="info-row">
-            <span class="info-label">상태:</span>
-            <span class="info-value">숨겨진 네트워크</span>
+            <span class="info-label">{{ $t('tools.wifiQr.status') }}:</span>
+            <span class="info-value">{{ $t('tools.wifiQr.hiddenNetwork') }}</span>
           </div>
         </div>
 
         <div class="button-group">
           <button class="btn btn-primary" @click="downloadQRCode">
             <Icon name="mdi:download" />
-            다운로드
+            {{ $t('common.download') }}
           </button>
           <button class="btn btn-secondary" @click="copyToClipboard">
             <Icon name="mdi:content-copy" />
-            복사
+            {{ $t('common.copy') }}
           </button>
         </div>
       </div>
@@ -267,28 +267,28 @@ useHead({
       <div class="card info-section">
         <h2 class="info-title">
           <Icon name="mdi:information" />
-          사용 방법
+          {{ $t('tools.wifiQr.info.title') }}
         </h2>
         <ul class="info-list">
           <li class="info-item">
             <Icon name="mdi:check-circle" />
-            <span>WiFi 네트워크 이름(SSID)과 비밀번호를 입력하세요</span>
+            <span>{{ $t('tools.wifiQr.info.item1') }}</span>
           </li>
           <li class="info-item">
             <Icon name="mdi:check-circle" />
-            <span>QR 코드 생성 버튼을 클릭하여 QR 코드를 만드세요</span>
+            <span>{{ $t('tools.wifiQr.info.item2') }}</span>
           </li>
           <li class="info-item">
             <Icon name="mdi:check-circle" />
-            <span>스마트폰 카메라로 QR 코드를 스캔하면 자동으로 WiFi에 연결됩니다</span>
+            <span>{{ $t('tools.wifiQr.info.item3') }}</span>
           </li>
           <li class="info-item">
             <Icon name="mdi:check-circle" />
-            <span>일부 오래된 기기에서는 WiFi QR 코드가 지원되지 않을 수 있습니다</span>
+            <span>{{ $t('tools.wifiQr.info.item4') }}</span>
           </li>
           <li class="info-item">
             <Icon name="mdi:check-circle" />
-            <span>보안을 위해 생성된 QR 코드는 신뢰할 수 있는 사람과만 공유하세요</span>
+            <span>{{ $t('tools.wifiQr.info.item5') }}</span>
           </li>
         </ul>
       </div>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { showToast } = useToast()
-
+const { t } = useI18n()
 const shareUrl = computed(() => {
   if (typeof window !== 'undefined') {
     return window.location.href
@@ -33,10 +33,10 @@ const handleShare = async () => {
 const copyUrl = async () => {
   try {
     await navigator.clipboard.writeText(shareUrl.value)
-    showToast('URL이 복사되었습니다')
+    showToast(t('common.urlCopied'))
   } catch (error) {
     console.error('복사 실패:', error)
-    showToast('복사에 실패했습니다')
+    showToast(t('common.copyFailed'))
   }
 }
 </script>
@@ -44,7 +44,7 @@ const copyUrl = async () => {
 <template>
   <button class="share-button" @click="handleShare">
     <Icon name="mdi:share-variant" />
-    <span>공유하기</span>
+    <span>{{ $t('common.share') }}</span>
   </button>
 </template>
 

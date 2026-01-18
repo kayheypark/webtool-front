@@ -9,7 +9,7 @@ const handleBack = () => {
 <template>
   <button class="back-button" @click="handleBack">
     <Icon name="mdi:arrow-left" />
-    <span>돌아가기</span>
+    <span>{{ $t('common.back') }}</span>
   </button>
 </template>
 

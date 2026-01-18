@@ -84,14 +84,14 @@ useHead({
 
     <!-- Header -->
     <div class="header">
-      <h1 class="header-title">내 IP 주소</h1>
-      <p class="header-description">현재 사용 중인 IP 주소와 위치 정보를 확인하세요</p>
+      <h1 class="header-title">{{ $t('tools.myIp.title') }}</h1>
+      <p class="header-description">{{ $t('tools.myIp.description') }}</p>
     </div>
 
     <!-- Loading -->
     <div v-if="loading" class="loading-container">
       <div class="spinner" />
-      <p class="loading-text">IP 정보를 불러오는 중...</p>
+      <p class="loading-text">{{ $t('common.loading') }}</p>
     </div>
 
     <!-- Error -->
@@ -100,7 +100,7 @@ useHead({
       <p class="error-text">{{ error }}</p>
       <button class="btn btn-primary" @click="() => fetchIPInfo(true)">
         <Icon name="mdi:refresh" />
-        다시 시도
+        {{ $t('common.retry') }}
       </button>
     </div>
 
@@ -108,11 +108,11 @@ useHead({
     <div v-else-if="ipInfo" class="content">
       <!-- Main IP Card -->
       <div class="ip-card">
-        <div class="ip-label">내 IP 주소</div>
+        <div class="ip-label">{{ $t('tools.myIp.yourIp') }}</div>
         <div class="ip-value">{{ ipInfo.ip }}</div>
         <button class="btn btn-copy" @click="copyToClipboard(ipInfo.ip)">
           <Icon name="mdi:content-copy" />
-          복사
+          {{ $t('common.copy') }}
         </button>
       </div>
 
@@ -123,7 +123,7 @@ useHead({
             <Icon name="mdi:earth" />
           </div>
           <div class="detail-info">
-            <div class="detail-label">국가</div>
+            <div class="detail-label">{{ $t('tools.myIp.country') }}</div>
             <div class="detail-value">{{ ipInfo.country || '-' }}</div>
           </div>
         </div>
@@ -133,7 +133,7 @@ useHead({
             <Icon name="mdi:map-marker" />
           </div>
           <div class="detail-info">
-            <div class="detail-label">지역</div>
+            <div class="detail-label">{{ $t('tools.myIp.region') }}</div>
             <div class="detail-value">{{ ipInfo.region || '-' }}</div>
           </div>
         </div>
@@ -143,7 +143,7 @@ useHead({
             <Icon name="mdi:city" />
           </div>
           <div class="detail-info">
-            <div class="detail-label">도시</div>
+            <div class="detail-label">{{ $t('tools.myIp.city') }}</div>
             <div class="detail-value">{{ ipInfo.city || '-' }}</div>
           </div>
         </div>
@@ -163,24 +163,24 @@ useHead({
       <div class="card info-section">
         <h2 class="info-title">
           <Icon name="mdi:information" />
-          안내사항
+          {{ $t('tools.myIp.info.title') }}
         </h2>
         <ul class="info-list">
           <li class="info-item">
             <Icon name="mdi:check-circle" />
-            <span>표시되는 IP 주소는 현재 사용 중인 공인 IP 주소입니다</span>
+            <span>{{ $t('tools.myIp.info.item1') }}</span>
           </li>
           <li class="info-item">
             <Icon name="mdi:check-circle" />
-            <span>VPN이나 프록시를 사용하는 경우 실제 위치와 다를 수 있습니다</span>
+            <span>{{ $t('tools.myIp.info.item2') }}</span>
           </li>
           <li class="info-item">
             <Icon name="mdi:check-circle" />
-            <span>위치 정보는 대략적인 위치이며 정확하지 않을 수 있습니다</span>
+            <span>{{ $t('tools.myIp.info.item3') }}</span>
           </li>
           <li class="info-item">
             <Icon name="mdi:check-circle" />
-            <span>ISP는 인터넷 서비스 제공업체를 의미합니다</span>
+            <span>{{ $t('tools.myIp.info.item4') }}</span>
           </li>
         </ul>
       </div>

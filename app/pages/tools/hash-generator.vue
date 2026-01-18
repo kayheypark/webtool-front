@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { t } = useI18n()
 const input = ref('')
 const hashes = ref({
   md5: '',
@@ -200,34 +201,33 @@ const { showToast } = useToast()
 const copyToClipboard = async (hash: string) => {
   try {
     await navigator.clipboard.writeText(hash)
-    showToast('복사되었습니다')
+    showToast(t('common.copied'))
   } catch (error) {
-    console.error('복사 실패:', error)
-    showToast('복사에 실패했습니다')
+    console.error('Copy failed:', error)
+    showToast(t('common.copyFailed'))
   }
 }
 
 watch(input, generateHashes)
 
 useHead({
-  title: '해시 생성기 - 무설치 유팉리티',
+  title: `${t('tools.hashGenerator.title')} - ${t('common.title')}`,
   meta: [
     {
       name: 'description',
-      content:
-        'MD5, SHA-1, SHA-256, SHA-512 해시를 생성하는 도구입니다. 텍스트를 입력하면 실시간으로 다양한 해시 알고리즘의 결과를 확인할 수 있습니다.',
+      content: t('tools.hashGenerator.metaDescription'),
     },
-    { name: 'keywords', content: '해시생성기, MD5생성, SHA256생성, 암호화해시, 해시함수' },
+    { name: 'keywords', content: 'hash generator, MD5, SHA256, SHA512, cryptographic hash, hash function' },
     // Open Graph
     { property: 'og:type', content: 'website' },
-    { property: 'og:title', content: '해시 생성기 - 무설치 유팉리티' },
-    { property: 'og:description', content: 'MD5, SHA-1, SHA-256, SHA-512 해시를 생성' },
-    { property: 'og:site_name', content: '무설치 유틸리티' },
+    { property: 'og:title', content: `${t('tools.hashGenerator.title')} - ${t('common.title')}` },
+    { property: 'og:description', content: t('tools.hashGenerator.description') },
+    { property: 'og:site_name', content: t('common.title') },
     { property: 'og:locale', content: 'ko_KR' },
     // Twitter Card
     { name: 'twitter:card', content: 'summary' },
-    { name: 'twitter:title', content: '해시 생성기 - 무설치 유팉리티' },
-    { name: 'twitter:description', content: 'MD5, SHA-1, SHA-256, SHA-512 해시를 생성' },
+    { name: 'twitter:title', content: `${t('tools.hashGenerator.title')} - ${t('common.title')}` },
+    { name: 'twitter:description', content: t('tools.hashGenerator.description') },
   ],
   script: [
     {
@@ -235,8 +235,8 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebApplication',
-        name: '해시 생성기',
-        description: 'MD5, SHA-1, SHA-256, SHA-512 해시를 생성하는 도구',
+        name: t('tools.hashGenerator.title'),
+        description: t('tools.hashGenerator.description'),
         applicationCategory: 'UtilityApplication',
         offers: {
           '@type': 'Offer',
@@ -257,18 +257,18 @@ useHead({
     </div>
 
     <div class="header">
-      <h1 class="header-title">해시 생성기</h1>
-      <p class="header-description">텍스트의 해시 값을 생성하세요</p>
+      <h1 class="header-title">{{ $t('tools.hashGenerator.title') }}</h1>
+      <p class="header-description">{{ $t('tools.hashGenerator.description') }}</p>
     </div>
 
     <div class="content">
       <!-- Input -->
       <div class="card">
-        <label class="input-label">입력 텍스트</label>
+        <label class="input-label">{{ $t('tools.hashGenerator.inputText') }}</label>
         <textarea
           v-model="input"
           class="textarea"
-          placeholder="해시를 생성할 텍스트를 입력하세요..."
+          :placeholder="$t('tools.hashGenerator.placeholder')"
           rows="6"
         />
       </div>
@@ -320,24 +320,24 @@ useHead({
       <div class="card info-section">
         <h2 class="info-title">
           <Icon name="mdi:information" />
-          해시 알고리즘 정보
+          {{ $t('tools.hashGenerator.info.title') }}
         </h2>
         <ul class="info-list">
           <li class="info-item">
             <Icon name="mdi:check-circle" />
-            <span><strong>MD5:</strong> 128비트 해시, 보안용으로는 권장되지 않음</span>
+            <span>{{ $t('tools.hashGenerator.info.item1') }}</span>
           </li>
           <li class="info-item">
             <Icon name="mdi:check-circle" />
-            <span><strong>SHA-1:</strong> 160비트 해시, 보안용으로는 권장되지 않음</span>
+            <span>{{ $t('tools.hashGenerator.info.item2') }}</span>
           </li>
           <li class="info-item">
             <Icon name="mdi:check-circle" />
-            <span><strong>SHA-256:</strong> 256비트 해시, 안전한 암호화 해시 함수</span>
+            <span>{{ $t('tools.hashGenerator.info.item3') }}</span>
           </li>
           <li class="info-item">
             <Icon name="mdi:check-circle" />
-            <span><strong>SHA-512:</strong> 512비트 해시, 가장 강력한 암호화 해시 함수</span>
+            <span>{{ $t('tools.hashGenerator.info.item4') }}</span>
           </li>
         </ul>
       </div>

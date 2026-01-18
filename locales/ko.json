@@ -1,0 +1,227 @@
+{
+  "common": {
+    "title": "무설치 유틸리티",
+    "description": "로그인 필요없는, 개발자와 일반 사용자를 위한 웹 기반 유틸리티 도구",
+    "copy": "복사",
+    "copied": "복사되었습니다",
+    "copyFailed": "복사에 실패했습니다",
+    "generate": "생성",
+    "reset": "초기화",
+    "download": "다운로드",
+    "downloaded": "다운로드되었습니다",
+    "loading": "불러오는 중...",
+    "error": "오류",
+    "retry": "다시 시도",
+    "back": "뒤로",
+    "share": "공유",
+    "urlCopied": "URL이 복사되었습니다",
+    "accessDenied": "접근이 제한되었습니다",
+    "devToolsDisabled": "개발자 도구를 사용할 수 없습니다"
+  },
+  "nav": {
+    "home": "홈",
+    "utilities": "유틸리티",
+    "tools": "도구 둘러보기"
+  },
+  "home": {
+    "title": "무설치 유틸리티",
+    "subtitle": "로그인 필요없는, 개발자와 일반 사용자를 위한 웹 기반 유틸리티 도구",
+    "features": {
+      "fast": {
+        "title": "빠르고 간편",
+        "description": "별도 설치 없이 웹 브라우저에서 바로 사용"
+      },
+      "secure": {
+        "title": "안전한 처리",
+        "description": "모든 데이터는 브라우저 내에서만 처리 (IP 유틸리티 제외)"
+      },
+      "responsive": {
+        "title": "반응형 디자인",
+        "description": "PC, 태블릿, 모바일 모든 기기 지원"
+      }
+    },
+    "toolsTitle": "제공되는 도구"
+  },
+  "tools": {
+    "index": {
+      "title": "유틸리티",
+      "description": "다양한 웹 기반 유틸리티 도구 모음"
+    },
+    "characterCounter": {
+      "title": "글자수 세기",
+      "shortTitle": "글자수 세기",
+      "description": "텍스트의 글자 수, 단어 수, 바이트 수를 실시간으로 확인",
+      "placeholder": "여기에 텍스트를 입력하세요...",
+      "stats": {
+        "characters": "글자 수",
+        "charactersNoSpaces": "공백 제외",
+        "words": "단어 수",
+        "lines": "줄 수",
+        "bytes": "바이트"
+      },
+      "options": {
+        "includeSpaces": "공백 포함",
+        "showBytes": "바이트 표시"
+      },
+      "info": {
+        "title": "사용 안내",
+        "item1": "텍스트를 입력하면 실시간으로 통계가 업데이트됩니다",
+        "item2": "한글은 UTF-8 기준으로 한 글자당 3바이트로 계산됩니다",
+        "item3": "영문과 숫자는 1바이트, 특수문자는 1~4바이트입니다",
+        "item4": "단어는 공백과 줄바꿈으로 구분됩니다"
+      }
+    },
+    "myIp": {
+      "title": "내 IP 주소",
+      "shortTitle": "내 아이피",
+      "description": "현재 사용 중인 IP 주소와 위치 정보를 확인",
+      "subtitle": "현재 사용 중인 IP 주소와 위치 정보를 확인하세요",
+      "loadingText": "IP 정보를 불러오는 중...",
+      "errorText": "IP 정보를 가져오는데 실패했습니다.",
+      "ipLabel": "내 IP 주소",
+      "details": {
+        "country": "국가",
+        "region": "지역",
+        "city": "도시",
+        "isp": "ISP"
+      },
+      "info": {
+        "title": "안내사항",
+        "item1": "표시되는 IP 주소는 현재 사용 중인 공인 IP 주소입니다",
+        "item2": "VPN이나 프록시를 사용하는 경우 실제 위치와 다를 수 있습니다",
+        "item3": "위치 정보는 대략적인 위치이며 정확하지 않을 수 있습니다",
+        "item4": "ISP는 인터넷 서비스 제공업체를 의미합니다"
+      }
+    },
+    "uuidGenerator": {
+      "title": "UUID 생성기",
+      "shortTitle": "UUID 생성기",
+      "description": "고유한 UUID를 생성하고 복사",
+      "subtitle": "고유한 식별자(UUID)를 생성하세요",
+      "generateCount": "생성 개수",
+      "copyAll": "모두 복사",
+      "allCopied": "모두 복사되었습니다",
+      "info": {
+        "title": "UUID란?",
+        "item1": "UUID는 범용 고유 식별자(Universally Unique Identifier)입니다",
+        "item2": "128비트 숫자로 이루어진 고유한 식별자입니다",
+        "item3": "중복될 확률이 극히 낮아 고유성이 보장됩니다",
+        "item4": "데이터베이스 ID, 파일명, 세션 ID 등에 사용됩니다"
+      }
+    },
+    "passwordGenerator": {
+      "title": "비밀번호 생성기",
+      "shortTitle": "비밀번호 생성기",
+      "description": "강력한 랜덤 비밀번호를 생성",
+      "subtitle": "안전한 비밀번호를 생성하세요",
+      "length": "비밀번호 길이",
+      "lengthValue": "길이: {length}자",
+      "options": {
+        "uppercase": "대문자 (A-Z)",
+        "lowercase": "소문자 (a-z)",
+        "numbers": "숫자 (0-9)",
+        "symbols": "특수문자 (!@#$%)"
+      },
+      "strength": {
+        "label": "보안 강도",
+        "veryWeak": "매우 약함",
+        "weak": "약함",
+        "medium": "보통",
+        "strong": "강함",
+        "veryStrong": "매우 강함"
+      },
+      "info": {
+        "title": "안전한 비밀번호 팁",
+        "item1": "최소 12자 이상의 길이를 사용하세요",
+        "item2": "대소문자, 숫자, 특수문자를 모두 포함하세요",
+        "item3": "사전에 있는 단어나 개인정보를 사용하지 마세요",
+        "item4": "각 계정마다 다른 비밀번호를 사용하세요"
+      }
+    },
+    "hashGenerator": {
+      "title": "해시 생성기",
+      "shortTitle": "해시 생성기",
+      "description": "MD5, SHA-1, SHA-256, SHA-512 해시 생성",
+      "subtitle": "텍스트를 해시값으로 변환하세요",
+      "placeholder": "해시로 변환할 텍스트를 입력하세요...",
+      "algorithms": {
+        "md5": "MD5",
+        "sha1": "SHA-1",
+        "sha256": "SHA-256",
+        "sha512": "SHA-512"
+      },
+      "info": {
+        "title": "해시 함수 정보",
+        "item1": "MD5: 128비트 해시, 보안용으로는 권장하지 않음",
+        "item2": "SHA-1: 160비트 해시, 레거시 시스템에서 사용",
+        "item3": "SHA-256: 256비트 해시, 현재 표준 암호화 해시 함수",
+        "item4": "SHA-512: 512비트 해시, 가장 강력한 암호화 해시 함수"
+      }
+    },
+    "qrGenerator": {
+      "title": "QR코드 생성기",
+      "shortTitle": "QR코드 생성기",
+      "description": "텍스트나 URL을 QR 코드로 변환",
+      "subtitle": "텍스트나 URL을 입력하면 QR 코드로 변환됩니다",
+      "placeholder": "QR 코드로 변환할 텍스트나 URL을 입력하세요...",
+      "size": "크기",
+      "errorLevel": "오류 복구 수준",
+      "errorLevels": {
+        "L": "낮음 (7%)",
+        "M": "중간 (15%)",
+        "Q": "높음 (25%)",
+        "H": "최고 (30%)"
+      },
+      "noQrText": "텍스트를 입력하면\nQR 코드가 생성됩니다",
+      "generating": "생성 중...",
+      "info": {
+        "title": "사용 안내",
+        "item1": "URL, 텍스트, 전화번호 등 다양한 정보를 QR 코드로 변환할 수 있습니다",
+        "item2": "오류 복구 수준이 높을수록 QR 코드가 손상되어도 읽을 수 있습니다",
+        "item3": "크기를 조절하여 용도에 맞는 QR 코드를 생성할 수 있습니다",
+        "item4": "생성된 QR 코드는 PNG 이미지로 다운로드할 수 있습니다"
+      }
+    },
+    "wifiQr": {
+      "title": "WiFi QR 코드 생성기",
+      "shortTitle": "WiFi QR 생성기",
+      "description": "WiFi 네트워크를 QR 코드로 공유",
+      "subtitle": "WiFi 네트워크 정보를 QR 코드로 변환하여 간편하게 공유하세요",
+      "inputTitle": "WiFi 정보 입력",
+      "resultTitle": "생성된 QR 코드",
+      "form": {
+        "ssid": "네트워크 이름 (SSID)",
+        "ssidPlaceholder": "예: MyWiFi",
+        "security": "보안 방식",
+        "securityTypes": {
+          "WPA": "WPA/WPA2/WPA3",
+          "WEP": "WEP",
+          "nopass": "보안 없음"
+        },
+        "password": "비밀번호",
+        "passwordPlaceholder": "WiFi 비밀번호 입력",
+        "hiddenNetwork": "숨겨진 네트워크"
+      },
+      "generateButton": "QR 코드 생성",
+      "generatedMessage": "QR 코드가 생성되었습니다",
+      "qrInfo": {
+        "network": "네트워크",
+        "security": "보안",
+        "status": "상태",
+        "hiddenStatus": "숨겨진 네트워크"
+      },
+      "validation": {
+        "ssidRequired": "네트워크 이름(SSID)을 입력하세요",
+        "passwordRequired": "비밀번호를 입력하세요"
+      },
+      "info": {
+        "title": "사용 방법",
+        "item1": "WiFi 네트워크 이름(SSID)과 비밀번호를 입력하세요",
+        "item2": "QR 코드 생성 버튼을 클릭하여 QR 코드를 만드세요",
+        "item3": "스마트폰 카메라로 QR 코드를 스캔하면 자동으로 WiFi에 연결됩니다",
+        "item4": "일부 오래된 기기에서는 WiFi QR 코드가 지원되지 않을 수 있습니다",
+        "item5": "보안을 위해 생성된 QR 코드는 신뢰할 수 있는 사람과만 공유하세요"
+      }
+    }
+  }
+}

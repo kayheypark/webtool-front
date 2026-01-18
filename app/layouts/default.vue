@@ -9,29 +9,61 @@ interface MenuItem {
   children?: MenuItem[]
 }
 
-const menuItems: MenuItem[] = [
+const { t } = useI18n()
+const localePath = useLocalePath()
+
+const menuItems = computed<MenuItem[]>(() => [
   {
-    title: '홈',
+    title: t('nav.home'),
     icon: 'mdi:home',
-    path: '/',
+    path: localePath('/'),
   },
   {
-    title: '유틸리티',
+    title: t('nav.utilities'),
     icon: 'mdi:tools',
-    path: '/tools',
+    path: localePath('/tools'),
     children: [
-      { title: '글자수 세기', icon: '', path: '/tools/character-counter' },
-      { title: '내 아이피', icon: '', path: '/tools/my-ip' },
-      { title: 'UUID 생성기', icon: '', path: '/tools/uuid-generator' },
-      { title: '비밀번호 생성기', icon: '', path: '/tools/password-generator' },
-      { title: '해시 생성기', icon: '', path: '/tools/hash-generator' },
-      { title: 'QR코드 생성기', icon: '', path: '/tools/qr-generator' },
-      { title: 'WiFi QR 생성기', icon: '', path: '/tools/wifi-qr' },
+      {
+        title: t('tools.characterCounter.shortTitle'),
+        icon: '',
+        path: localePath('/tools/character-counter'),
+      },
+      { title: t('tools.myIp.shortTitle'), icon: '', path: localePath('/tools/my-ip') },
+      {
+        title: t('tools.uuidGenerator.shortTitle'),
+        icon: '',
+        path: localePath('/tools/uuid-generator'),
+      },
+      {
+        title: t('tools.passwordGenerator.shortTitle'),
+        icon: '',
+        path: localePath('/tools/password-generator'),
+      },
+      {
+        title: t('tools.hashGenerator.shortTitle'),
+        icon: '',
+        path: localePath('/tools/hash-generator'),
+      },
+      {
+        title: t('tools.qrGenerator.shortTitle'),
+        icon: '',
+        path: localePath('/tools/qr-generator'),
+      },
+      { title: t('tools.wifiQr.shortTitle'), icon: '', path: localePath('/tools/wifi-qr') },
     ],
   },
-]
+])
 
 const isActiveRoute = (path: string) => {
+  // localePath로 변환된 경로들을 고려
+  const homePaths = ['/', '/en', '/ko']
+
+  // Home 경로인 경우 정확히 일치할 때만 active
+  if (homePaths.includes(path)) {
+    return route.path === path
+  }
+
+  // 다른 경로는 정확히 일치하거나 하위 경로일 때 active
   return route.path === path || route.path.startsWith(path + '/')
 }
 
@@ -85,10 +117,24 @@ const toggleSidebar = () => {
           </div>
         </template>
       </nav>
+
+      <!-- 언어 선택 버튼 (사이드바 하단) -->
+      <div class="sidebar-footer" :class="{ collapsed: isSidebarCollapsed }">
+        <CommonLanguageSelector :collapsed="isSidebarCollapsed" />
+      </div>
     </aside>
 
     <!-- Main Content -->
     <main class="main-content" :class="{ 'sidebar-collapsed': isSidebarCollapsed }">
+      <!-- Mobile Header -->
+      <div class="mobile-header">
+        <div class="mobile-header-left">
+          <CommonMobileMenu :menu-items="menuItems" />
+          <h1 class="mobile-logo">ssiat.link</h1>
+        </div>
+        <CommonLanguageSelector />
+      </div>
+
       <div class="page-container">
         <div class="container">
           <slot />
@@ -138,6 +184,7 @@ const toggleSidebar = () => {
 
   &.collapsed {
     width: 70px;
+    overflow: visible; // 드롭다운이 보이도록 변경
 
     .nav-text,
     .nav-child-text {
@@ -211,6 +258,19 @@ const toggleSidebar = () => {
 .sidebar-nav {
   flex: 1;
   padding: 16px 0;
+}
+
+.sidebar-footer {
+  padding: 16px;
+  border-top: 1px solid var(--fe-border-light);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: visible;
+
+  &.collapsed {
+    padding: 12px 8px;
+    overflow: visible;
+  }
 }
 
 .nav-section {
@@ -311,6 +371,35 @@ const toggleSidebar = () => {
   @media (max-width: 1024px) {
     margin-left: 0;
   }
+}
+
+.mobile-header {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: white;
+  border-bottom: 1px solid var(--fe-border-light);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  @media (max-width: 1024px) {
+    display: flex;
+  }
+}
+
+.mobile-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobile-logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--fe-primary);
+  margin: 0;
 }
 
 .page-container {

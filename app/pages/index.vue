@@ -1,11 +1,12 @@
 <script setup lang="ts">
+const { t } = useI18n()
+
 useHead({
-  title: '무설치 유팉리티',
+  title: t('common.title'),
   meta: [
     {
       name: 'description',
-      content:
-        '로그인 필요없는, 개발자와 일반 사용자를 위한 웹 기반 유틸리티 도구. 글자수 세기, UUID 생성기, 비밀번호 생성기, 해시 생성기, QR코드 생성기, WiFi QR 생성기 등 다양한 도구를 무료로 사용하세요.',
+      content: t('common.description'),
     },
     {
       name: 'keywords',
@@ -14,19 +15,19 @@ useHead({
     },
     // Open Graph
     { property: 'og:type', content: 'website' },
-    { property: 'og:title', content: '무설치 유팉리티' },
+    { property: 'og:title', content: t('common.title') },
     {
       property: 'og:description',
-      content: '로그인 필요없는, 개발자와 일반 사용자를 위한 웹 기반 유틸리티 도구',
+      content: t('common.description'),
     },
-    { property: 'og:site_name', content: '무설치 유틸리티' },
+    { property: 'og:site_name', content: t('common.title') },
     { property: 'og:locale', content: 'ko_KR' },
     // Twitter Card
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: '무설치 유팉리티' },
+    { name: 'twitter:title', content: t('common.title') },
     {
       name: 'twitter:description',
-      content: '로그인 필요없는, 개발자와 일반 사용자를 위한 웹 기반 유틸리티 도구',
+      content: t('common.description'),
     },
   ],
   script: [
@@ -63,11 +64,11 @@ useHead({
     <div class="content">
       <!-- Hero Section -->
       <section class="hero">
-        <h1 class="title">무설치 유틸리티</h1>
-        <p class="subtitle">로그인 필요없는, 개발자와 일반 사용자를 위한 웹 기반 유틸리티 도구</p>
+        <h1 class="title">{{ $t('home.title') }}</h1>
+        <p class="subtitle">{{ $t('home.subtitle') }}</p>
         <NuxtLink to="/tools" class="cta-button">
           <Icon name="mdi:tools" />
-          도구 둘러보기
+          {{ $t('nav.tools') }}
         </NuxtLink>
       </section>
 
@@ -77,58 +78,58 @@ useHead({
           <div class="feature-icon">
             <Icon name="mdi:lightning-bolt" />
           </div>
-          <h3 class="feature-title">빠르고 간편</h3>
-          <p class="feature-description">별도 설치 없이 웹 브라우저에서 바로 사용</p>
+          <h3 class="feature-title">{{ $t('home.features.fast.title') }}</h3>
+          <p class="feature-description">{{ $t('home.features.fast.description') }}</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">
             <Icon name="mdi:shield-check" />
           </div>
-          <h3 class="feature-title">안전한 처리</h3>
-          <p class="feature-description">모든 데이터는 브라우저 내에서만 처리 (IP 유틸리티 제외)</p>
+          <h3 class="feature-title">{{ $t('home.features.secure.title') }}</h3>
+          <p class="feature-description">{{ $t('home.features.secure.description') }}</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">
             <Icon name="mdi:devices" />
           </div>
-          <h3 class="feature-title">반응형 디자인</h3>
-          <p class="feature-description">PC, 태블릿, 모바일 모든 기기 지원</p>
+          <h3 class="feature-title">{{ $t('home.features.responsive.title') }}</h3>
+          <p class="feature-description">{{ $t('home.features.responsive.description') }}</p>
         </div>
       </section>
 
       <!-- Tools Preview -->
       <section class="tools-preview">
-        <h2 class="section-title">제공되는 도구</h2>
+        <h2 class="section-title">{{ $t('home.toolsTitle') }}</h2>
         <div class="tools-grid">
           <div class="tool-item">
             <Icon name="mdi:calculator" />
-            <span>글자수 세기</span>
+            <span>{{ $t('tools.characterCounter.shortTitle') }}</span>
           </div>
           <div class="tool-item">
             <Icon name="mdi:ip-network" />
-            <span>내 아이피</span>
+            <span>{{ $t('tools.myIp.shortTitle') }}</span>
           </div>
           <div class="tool-item">
             <Icon name="mdi:identifier" />
-            <span>UUID 생성기</span>
+            <span>{{ $t('tools.uuidGenerator.shortTitle') }}</span>
           </div>
           <div class="tool-item">
             <Icon name="mdi:lock-reset" />
-            <span>비밀번호 생성기</span>
+            <span>{{ $t('tools.passwordGenerator.shortTitle') }}</span>
           </div>
           <div class="tool-item">
             <Icon name="mdi:pound" />
-            <span>해시 생성기</span>
+            <span>{{ $t('tools.hashGenerator.shortTitle') }}</span>
           </div>
           <div class="tool-item">
             <Icon name="mdi:qrcode" />
-            <span>QR코드 생성기</span>
+            <span>{{ $t('tools.qrGenerator.shortTitle') }}</span>
           </div>
           <div class="tool-item">
             <Icon name="mdi:wifi-cog" />
-            <span>WiFi QR 생성기</span>
+            <span>{{ $t('tools.wifiQr.shortTitle') }}</span>
           </div>
         </div>
       </section>

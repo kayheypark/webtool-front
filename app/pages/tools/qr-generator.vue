@@ -1,16 +1,17 @@
 <script setup lang="ts">
+const { t } = useI18n()
 const text = ref('')
 const qrSize = ref(256)
 const errorLevel = ref<'L' | 'M' | 'Q' | 'H'>('M')
 const qrCodeDataUrl = ref('')
 const isGenerating = ref(false)
 
-const errorLevels = [
-  { value: 'L', label: '낮음 (7%)', description: '작은 손상 복구' },
-  { value: 'M', label: '중간 (15%)', description: '보통 손상 복구' },
-  { value: 'Q', label: '높음 (25%)', description: '큰 손상 복구' },
-  { value: 'H', label: '최고 (30%)', description: '최대 손상 복구' },
-]
+const errorLevels = computed(() => [
+  { value: 'L', label: t('tools.qrGenerator.low'), description: t('tools.qrGenerator.errorLevelLow') },
+  { value: 'M', label: t('tools.qrGenerator.medium'), description: t('tools.qrGenerator.errorLevelMedium') },
+  { value: 'Q', label: t('tools.qrGenerator.quartile'), description: t('tools.qrGenerator.errorLevelQuartile') },
+  { value: 'H', label: t('tools.qrGenerator.high'), description: t('tools.qrGenerator.errorLevelHigh') },
+])
 
 // QR Code generation using qrcode library approach
 const generateQRCode = async () => {
@@ -28,7 +29,7 @@ const generateQRCode = async () => {
     const url = `https://api.qrserver.com/v1/create-qr-code/?size=${qrSize.value}x${qrSize.value}&data=${encoded}&ecc=${errorLevel.value}`
     qrCodeDataUrl.value = url
   } catch (error) {
-    console.error('QR 코드 생성 실패:', error)
+    console.error('QR code generation failed:', error)
   } finally {
     isGenerating.value = false
   }
@@ -48,7 +49,7 @@ const { showToast } = useToast()
 
 const handleDownload = () => {
   if (!qrCodeDataUrl.value) {
-    showToast('먼저 QR 코드를 생성해주세요')
+    showToast(t('tools.qrGenerator.generateFirst'))
     return
   }
 
@@ -56,12 +57,12 @@ const handleDownload = () => {
   link.href = qrCodeDataUrl.value
   link.download = `qrcode-${Date.now()}.png`
   link.click()
-  showToast('QR 코드가 다운로드되었습니다')
+  showToast(t('tools.qrGenerator.downloadSuccess'))
 }
 
 const handleCopyImage = async () => {
   if (!qrCodeDataUrl.value) {
-    showToast('먼저 QR 코드를 생성해주세요')
+    showToast(t('tools.qrGenerator.generateFirst'))
     return
   }
 
@@ -73,35 +74,34 @@ const handleCopyImage = async () => {
         [blob.type]: blob,
       }),
     ])
-    showToast('QR 코드가 복사되었습니다')
+    showToast(t('tools.qrGenerator.copySuccess'))
   } catch (error) {
-    console.error('복사 실패:', error)
-    showToast('복사에 실패했습니다')
+    console.error('Copy failed:', error)
+    showToast(t('common.copyFailed'))
   }
 }
 
 useHead({
-  title: 'QR코드 생성기 - 무설치 유팉리티',
+  title: `${t('tools.qrGenerator.title')} - ${t('common.title')}`,
   meta: [
     {
       name: 'description',
-      content:
-        '텍스트나 URL을 QR 코드로 변환할 수 있는 QR 코드 생성기입니다. 다양한 크기와 오류 복구 레벨로 QR 코드를 생성하고 다운로드하세요.',
+      content: t('tools.qrGenerator.metaDescription'),
     },
     {
       name: 'keywords',
-      content: 'QR코드생성기, QR생성, 큐알코드만들기, URL QR코드, 텍스트 QR코드',
+      content: 'QR code generator, QR generator, create QR code, text to QR, URL to QR',
     },
     // Open Graph
     { property: 'og:type', content: 'website' },
-    { property: 'og:title', content: 'QR코드 생성기 - 무설치 유팉리티' },
-    { property: 'og:description', content: '텍스트나 URL을 QR 코드로 변환' },
-    { property: 'og:site_name', content: '무설치 유틸리티' },
+    { property: 'og:title', content: `${t('tools.qrGenerator.title')} - ${t('common.title')}` },
+    { property: 'og:description', content: t('tools.qrGenerator.description') },
+    { property: 'og:site_name', content: t('common.title') },
     { property: 'og:locale', content: 'ko_KR' },
     // Twitter Card
     { name: 'twitter:card', content: 'summary' },
-    { name: 'twitter:title', content: 'QR코드 생성기 - 무설치 유팉리티' },
-    { name: 'twitter:description', content: '텍스트나 URL을 QR 코드로 변환' },
+    { name: 'twitter:title', content: `${t('tools.qrGenerator.title')} - ${t('common.title')}` },
+    { name: 'twitter:description', content: t('tools.qrGenerator.description') },
   ],
   script: [
     {
@@ -109,8 +109,8 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebApplication',
-        name: 'QR코드 생성기',
-        description: '텍스트나 URL을 QR 코드로 변환할 수 있는 도구',
+        name: t('tools.qrGenerator.title'),
+        description: t('tools.qrGenerator.description'),
         applicationCategory: 'UtilityApplication',
         offers: {
           '@type': 'Offer',
@@ -132,8 +132,8 @@ useHead({
 
     <!-- Header -->
     <div class="header">
-      <h1 class="header-title">QR코드 생성기</h1>
-      <p class="header-description">텍스트나 URL을 입력하면 QR 코드로 변환됩니다</p>
+      <h1 class="header-title">{{ $t('tools.qrGenerator.title') }}</h1>
+      <p class="header-description">{{ $t('tools.qrGenerator.description') }}</p>
     </div>
 
     <!-- Main Content -->
@@ -142,17 +142,17 @@ useHead({
       <div class="input-section">
         <div class="card">
           <div class="form-group">
-            <label class="label">텍스트 또는 URL</label>
+            <label class="label">{{ $t('tools.qrGenerator.textOrUrl') }}</label>
             <textarea
               v-model="text"
               class="textarea"
-              placeholder="QR 코드로 변환할 텍스트나 URL을 입력하세요..."
+              :placeholder="$t('tools.qrGenerator.inputPlaceholder')"
               rows="4"
             />
           </div>
 
           <div class="form-group">
-            <label class="label"> 크기: {{ qrSize }}px </label>
+            <label class="label"> {{ $t('tools.qrGenerator.size') }}: {{ qrSize }}px </label>
             <input
               v-model.number="qrSize"
               type="range"
@@ -168,7 +168,7 @@ useHead({
           </div>
 
           <div class="form-group">
-            <label class="label">오류 복구 수준</label>
+            <label class="label">{{ $t('tools.qrGenerator.errorCorrection') }}</label>
             <div class="radio-group">
               <label
                 v-for="level in errorLevels"
@@ -188,7 +188,7 @@ useHead({
           <div class="button-group">
             <button class="btn btn-secondary" @click="handleClear">
               <Icon name="mdi:delete" />
-              초기화
+              {{ $t('common.reset') }}
             </button>
           </div>
         </div>
@@ -199,13 +199,13 @@ useHead({
         <div class="card qr-card">
           <div v-if="!qrCodeDataUrl" class="qr-placeholder">
             <Icon name="mdi:qrcode" />
-            <p>텍스트를 입력하면<br />QR 코드가 생성됩니다</p>
+            <p>{{ $t('tools.qrGenerator.placeholderText') }}</p>
           </div>
 
           <div v-else class="qr-display">
             <div v-if="isGenerating" class="qr-loading">
               <div class="spinner" />
-              <p>생성 중...</p>
+              <p>{{ $t('tools.qrGenerator.generating') }}</p>
             </div>
             <img v-else :src="qrCodeDataUrl" alt="QR Code" class="qr-image" />
           </div>
@@ -213,11 +213,11 @@ useHead({
           <div v-if="qrCodeDataUrl" class="qr-actions">
             <button class="btn btn-primary" @click="handleDownload">
               <Icon name="mdi:download" />
-              다운로드
+              {{ $t('common.download') }}
             </button>
             <button class="btn btn-primary" @click="handleCopyImage">
               <Icon name="mdi:content-copy" />
-              복사
+              {{ $t('common.copy') }}
             </button>
           </div>
         </div>
@@ -228,24 +228,24 @@ useHead({
     <div class="card info-section">
       <h2 class="info-title">
         <Icon name="mdi:information" />
-        사용 안내
+        {{ $t('tools.qrGenerator.info.title') }}
       </h2>
       <ul class="info-list">
         <li class="info-item">
           <Icon name="mdi:check-circle" />
-          <span>URL, 텍스트, 전화번호 등 다양한 정보를 QR 코드로 변환할 수 있습니다</span>
+          <span>{{ $t('tools.qrGenerator.info.item1') }}</span>
         </li>
         <li class="info-item">
           <Icon name="mdi:check-circle" />
-          <span>오류 복구 수준이 높을수록 QR 코드가 손상되어도 읽을 수 있습니다</span>
+          <span>{{ $t('tools.qrGenerator.info.item2') }}</span>
         </li>
         <li class="info-item">
           <Icon name="mdi:check-circle" />
-          <span>크기를 조절하여 용도에 맞는 QR 코드를 생성할 수 있습니다</span>
+          <span>{{ $t('tools.qrGenerator.info.item3') }}</span>
         </li>
         <li class="info-item">
           <Icon name="mdi:check-circle" />
-          <span>생성된 QR 코드는 PNG 이미지로 다운로드할 수 있습니다</span>
+          <span>{{ $t('tools.qrGenerator.info.item4') }}</span>
         </li>
       </ul>
     </div>

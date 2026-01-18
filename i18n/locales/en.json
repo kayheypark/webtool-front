@@ -1,9 +1,25 @@
 {
   "common": {
+    "title": "No-Install Utilities",
+    "description": "Web-based utility tools for developers and general users, no login required",
+    "copy": "Copy",
+    "copied": "Copied",
+    "copyFailed": "Failed to copy",
+    "generate": "Generate",
+    "reset": "Reset",
+    "download": "Download",
+    "downloaded": "Downloaded",
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "back": "Back",
+    "share": "Share",
+    "urlCopied": "URL copied",
+    "accessDenied": "Access denied",
+    "devToolsDisabled": "Developer tools are disabled",
     "confirm": "Confirm",
     "cancel": "Cancel",
     "close": "Close",
-    "back": "Back",
     "next": "Next",
     "previous": "Previous",
     "save": "Save",
@@ -11,16 +27,263 @@
     "edit": "Edit",
     "search": "Search",
     "filter": "Filter",
-    "sort": "Sort",
-    "error": "Error"
+    "sort": "Sort"
+  },
+  "nav": {
+    "home": "Home",
+    "utilities": "Utilities",
+    "tools": "Browse Tools"
+  },
+  "home": {
+    "title": "No-Install Utilities",
+    "subtitle": "Web-based utility tools for developers and general users, no login required",
+    "features": {
+      "fast": {
+        "title": "Fast & Simple",
+        "description": "Use directly in your browser without installation"
+      },
+      "secure": {
+        "title": "Secure Processing",
+        "description": "All data is processed locally in your browser (except IP utility)"
+      },
+      "responsive": {
+        "title": "Responsive Design",
+        "description": "Works on PC, tablet, and mobile devices"
+      }
+    },
+    "toolsTitle": "Available Tools"
+  },
+  "tools": {
+    "index": {
+      "title": "Utilities",
+      "description": "Collection of various web-based utility tools"
+    },
+    "characterCounter": {
+      "title": "Character Counter",
+      "shortTitle": "Character Counter",
+      "description": "Count characters, bytes, and words in real-time",
+      "placeholder": "Enter your text here...",
+      "characters": "Characters",
+      "charactersNoSpace": "Characters (no spaces)",
+      "bytes": "Bytes",
+      "words": "Words",
+      "lines": "Lines",
+      "wordBoundaryOption": "Word boundary option",
+      "spaceOnly": "Space only",
+      "unicodeWord": "Unicode word boundary",
+      "stats": {
+        "characters": "Characters",
+        "charactersNoSpaces": "No Spaces",
+        "words": "Words",
+        "lines": "Lines",
+        "bytes": "Bytes"
+      },
+      "info": {
+        "title": "Usage Tips",
+        "item1": "Character count is calculated in real-time as you type",
+        "item2": "View character count both with and without spaces and line breaks",
+        "item3": "Accurately counts Korean, English, numbers, and special characters",
+        "item4": "Use the copy button to save your text to the clipboard"
+      }
+    },
+    "myIp": {
+      "title": "Check My IP",
+      "shortTitle": "My IP",
+      "description": "Check your current IP address and location information",
+      "yourIp": "My IP Address",
+      "ipInfo": "IP Information",
+      "country": "Country",
+      "region": "Region",
+      "city": "City",
+      "timezone": "Timezone",
+      "isp": "Internet Service Provider",
+      "coordinates": "Coordinates",
+      "refreshing": "Refreshing...",
+      "refreshInfo": "Refresh Info",
+      "info": {
+        "title": "Information",
+        "item1": "The displayed IP address is your current public IP address",
+        "item2": "Location may differ if using VPN or proxy",
+        "item3": "Location information is approximate and may not be accurate",
+        "item4": "ISP stands for Internet Service Provider"
+      }
+    },
+    "uuidGenerator": {
+      "title": "UUID Generator",
+      "shortTitle": "UUID Generator",
+      "description": "Generate unique UUIDs",
+      "metaDescription": "Generate UUID (Universally Unique Identifier). Create and copy unique identifiers in UUID v4 format.",
+      "version": "Version",
+      "v1Description": "Timestamp-based",
+      "v4Description": "Random",
+      "quantity": "Quantity",
+      "options": "Options",
+      "uppercase": "Uppercase",
+      "hyphens": "Include hyphens",
+      "braces": "Include braces",
+      "quotes": "Include quotes",
+      "generatedUuids": "Generated UUIDs",
+      "copyAll": "Copy All",
+      "copiedAll": "All copied",
+      "info": {
+        "title": "What is UUID?",
+        "item1": "UUID is a universally unique identifier with virtually no chance of duplication",
+        "item2": "Generates Version 4 UUIDs, which are randomly generated",
+        "item3": "Used for database IDs, file names, session IDs, and more"
+      }
+    },
+    "passwordGenerator": {
+      "title": "Password Generator",
+      "shortTitle": "Password Generator",
+      "description": "Generate secure passwords",
+      "metaDescription": "Generate secure and strong passwords. Create highly secure passwords by combining uppercase letters, lowercase letters, numbers, and special characters.",
+      "length": "Length",
+      "uppercase": "Include uppercase",
+      "lowercase": "Include lowercase",
+      "numbers": "Include numbers",
+      "symbols": "Include symbols",
+      "uppercaseLabel": "Uppercase (A-Z)",
+      "lowercaseLabel": "Lowercase (a-z)",
+      "numbersLabel": "Numbers (0-9)",
+      "symbolsLabel": "Symbols (!{'@'}#$%...)",
+      "excludeSimilar": "Exclude similar characters",
+      "excludeSimilarHint": "0, O, l, I, etc.",
+      "generated": "Generated password",
+      "generatePrompt": "Set options and generate a password",
+      "strength": "Strength",
+      "weak": "Weak",
+      "medium": "Medium",
+      "strong": "Strong",
+      "veryStrong": "Very Strong",
+      "regenerate": "Regenerate",
+      "info": {
+        "title": "Secure Password Guide",
+        "item1": "Minimum length of 12 characters is recommended",
+        "item2": "Including uppercase, lowercase, numbers, and symbols makes it more secure",
+        "item3": "Use a unique password for each account",
+        "item4": "Consider using a password manager"
+      }
+    },
+    "hashGenerator": {
+      "title": "Hash Generator",
+      "shortTitle": "Hash Generator",
+      "description": "Convert text to various hash formats",
+      "metaDescription": "Generate MD5, SHA-1, SHA-256, and SHA-512 hashes. See real-time results from various hash algorithms as you type.",
+      "inputText": "Input Text",
+      "placeholder": "Enter text to hash...",
+      "hashType": "Hash Type",
+      "output": "Output",
+      "compareHash": "Compare Hash",
+      "compareMode": "Compare mode",
+      "comparePlaceholder": "Enter hash to compare...",
+      "match": "Match",
+      "noMatch": "No match",
+      "info": {
+        "title": "Hash Algorithm Information",
+        "item1": "MD5: 128-bit hash, not recommended for security",
+        "item2": "SHA-1: 160-bit hash, not recommended for security",
+        "item3": "SHA-256: 256-bit hash, secure cryptographic hash function",
+        "item4": "SHA-512: 512-bit hash, most robust cryptographic hash function"
+      }
+    },
+    "qrGenerator": {
+      "title": "QR Code Generator",
+      "shortTitle": "QR Generator",
+      "description": "Convert text or URL to QR code",
+      "metaDescription": "QR code generator that converts text or URLs into QR codes. Generate and download QR codes with various sizes and error recovery levels.",
+      "dataType": "Data Type",
+      "text": "Text",
+      "textOrUrl": "Text or URL",
+      "url": "URL",
+      "email": "Email",
+      "phone": "Phone",
+      "sms": "SMS",
+      "inputPlaceholder": "Enter content to convert to QR code...",
+      "urlPlaceholder": "https://example.com",
+      "emailPlaceholder": "user{'@'}example.com",
+      "phonePlaceholder": "+821012345678",
+      "smsNumberPlaceholder": "Phone number",
+      "smsMessagePlaceholder": "Message content",
+      "size": "Size",
+      "errorCorrection": "Error correction level",
+      "low": "Low (7%)",
+      "medium": "Medium (15%)",
+      "quartile": "Quartile (25%)",
+      "high": "High (30%)",
+      "errorLevelLow": "Small damage recovery",
+      "errorLevelMedium": "Medium damage recovery",
+      "errorLevelQuartile": "Large damage recovery",
+      "errorLevelHigh": "Maximum damage recovery",
+      "foreground": "Foreground",
+      "background": "Background",
+      "includeMargin": "Include margin",
+      "downloadPng": "Download PNG",
+      "downloadSvg": "Download SVG",
+      "placeholderText": "Enter text to\ngenerate QR code",
+      "generating": "Generating...",
+      "generateFirst": "Please generate a QR code first",
+      "downloadSuccess": "QR code downloaded successfully",
+      "copySuccess": "QR code copied successfully",
+      "info": {
+        "title": "Usage Guide",
+        "item1": "Convert various information such as URLs, text, and phone numbers to QR codes",
+        "item2": "Higher error recovery levels allow QR codes to be read even when damaged",
+        "item3": "Adjust the size to generate QR codes for your needs",
+        "item4": "Generated QR codes can be downloaded as PNG images"
+      }
+    },
+    "wifiQr": {
+      "title": "WiFi QR Generator",
+      "shortTitle": "WiFi QR",
+      "description": "Generate QR code for WiFi connection",
+      "metaDescription": "Convert WiFi network information into QR codes for easy sharing. Scan the QR code with a smartphone to connect to WiFi automatically.",
+      "networkName": "Network Name (SSID)",
+      "networkNamePlaceholder": "WiFi network name",
+      "password": "Password",
+      "passwordPlaceholder": "WiFi password",
+      "securityType": "Security Type",
+      "noSecurity": "No security",
+      "hidden": "Hidden network",
+      "hiddenNetwork": "Hidden network",
+      "wifiInfoTitle": "Enter WiFi Information",
+      "generateQR": "Generate QR Code",
+      "generatedQR": "Generated QR Code",
+      "network": "Network",
+      "security": "Security",
+      "status": "Status",
+      "size": "QR Code Size",
+      "errorCorrection": "Error correction level",
+      "low": "Low (7%)",
+      "medium": "Medium (15%)",
+      "quartile": "Quartile (25%)",
+      "high": "High (30%)",
+      "foreground": "Foreground",
+      "background": "Background",
+      "includeMargin": "Include margin",
+      "downloadPng": "Download PNG",
+      "downloadSvg": "Download SVG",
+      "invalidSsid": "Please enter network name",
+      "invalidPassword": "Please enter password",
+      "passwordRequired": "Password is required for selected security type",
+      "generateSuccess": "QR code generated successfully",
+      "generateFailed": "Failed to generate QR code",
+      "info": {
+        "title": "How to Use",
+        "item1": "Enter your WiFi network name (SSID) and password",
+        "item2": "Click the Generate QR Code button to create the code",
+        "item3": "Scan the QR code with your smartphone camera to connect to WiFi automatically",
+        "item4": "Some older devices may not support WiFi QR codes",
+        "item5": "For security, only share the generated QR code with trusted people"
+      }
+    }
   },
   "frontMessages": {
-    "NO_TRANSLATION": "No translation found for this message",
-    "NETWORK_ERROR": "A network error has occurred. Please check your network status.",
-    "CP_SUCCESS": "Complaint submitted successfully."
+    "NO_TRANSLATION": "Translation not found for this message.",
+    "NETWORK_ERROR": "A network error occurred. Please check your network connection.",
+    "CP_SUCCESS": "Report has been submitted successfully."
   },
   "serverMessages": {
-    "INTERNAL_SERVER_ERROR": "Internal Server Error",
-    "VALIDATION_ERROR": "Validation Error"
+    "INTERNAL_SERVER_ERROR": "An internal server error occurred.",
+    "VALIDATION_ERROR": "A validation error occurred."
   }
 }
