@@ -1,0 +1,110 @@
+// 공통 툴 페이지 스타일
+
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.header-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--fe-gray-700);
+  margin: 0 0 12px;
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
+}
+
+.header-description {
+  font-size: 16px;
+  color: var(--fe-gray-500);
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--fe-shadow-sm);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  :deep(svg) {
+    width: 18px;
+    height: 18px;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.btn-primary {
+  background: var(--fe-primary);
+  color: white;
+
+  &:hover {
+    background: var(--fe-primary-hover);
+    box-shadow: var(--fe-shadow-md);
+    transform: translateY(-2px);
+  }
+}
+
+.btn-secondary {
+  background: var(--fe-gray-50);
+  color: var(--fe-gray-600);
+
+  &:hover {
+    background: var(--fe-gray-200);
+  }
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+// Toast 메시지
+.toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 16px 32px;
+  background: var(--fe-gray-700);
+  color: white;
+  border-radius: 8px;
+  box-shadow: var(--fe-shadow-xl);
+  font-size: 15px;
+  font-weight: 500;
+  z-index: 1000;
+}
+
+.toast-enter-active,
+.toast-leave-active {
+  transition: all 0.3s ease;
+}
+
+.toast-enter-from,
+.toast-leave-to {
+  opacity: 0;
+  transform: translateX(-50%) translateY(10px);
+}

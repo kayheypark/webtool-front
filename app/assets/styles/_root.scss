@@ -1,3 +1,31 @@
 :root {
   --fe-appbar-height: 54px;
+
+  // Primary Colors
+  --fe-primary: #333333;
+  --fe-primary-hover: #6e6e6e;
+  --fe-primary-light: rgba(58, 58, 58, 0.1);
+  --fe-primary-shadow: rgba(79, 70, 229, 0.3);
+
+  // Gray Colors
+  --fe-gray-50: #f7fafc;
+  --fe-gray-100: #f7fafc;
+  --fe-gray-200: #edf2f7;
+  --fe-gray-300: #e2e8f0;
+  --fe-gray-400: #a0aec0;
+  --fe-gray-500: #718096;
+  --fe-gray-600: #4a5568;
+  --fe-gray-700: #2d3748;
+  --fe-gray-800: #1a202c;
+
+  // Background Colors
+  --fe-bg-gradient-start: #f5f7fa;
+  --fe-bg-gradient-end: #ffffff;
+
+  // Border & Shadow
+  --fe-border-light: #e2e8f0;
+  --fe-shadow-sm: 0 2px 8px rgba(37, 37, 37, 0.05);
+  --fe-shadow-md: 0 4px 12px rgba(41, 41, 41, 0.4);
+  --fe-shadow-lg: 0 8px 24px rgba(31, 31, 31, 0.3);
+  --fe-shadow-xl: 0 8px 24px rgba(0, 0, 0, 0.2);
 }

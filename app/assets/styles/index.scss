@@ -2,10 +2,15 @@ body {
   margin: 0;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 @import '_variable';
 @import '_root';
 @import '_layout';
 @import '_util';
+@import '_tool-page';
 
 /* 기본 테마 */
 .theme-default {

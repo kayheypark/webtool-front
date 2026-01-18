@@ -85,7 +85,7 @@ const formatDate = (dateString: string) => {
       >
         <div class="user-info">
           <div class="profile-image">
-            <img v-if="like.profileImage" :src="like.profileImage" :alt="like.nickname">
+            <img v-if="like.profileImage" :src="like.profileImage" :alt="like.nickname"/>
             <Icon v-else name="mdi:account-circle" />
           </div>
           <div class="user-details">

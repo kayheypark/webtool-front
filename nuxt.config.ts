@@ -97,6 +97,14 @@ export default defineNuxtConfig({
         '/auth/withdrawal': { title: '회원탈퇴', showAppBar: true },
         '/auth/withdrawal/complete': { title: '회원탈퇴 완료', showAppBar: true },
 
+        '/tools': { title: '웹툴', showAppBar: true },
+        '/tools/character-counter': { title: '문자 수 세기', showAppBar: true },
+        '/tools/my-ip': { title: '내 아이피', showAppBar: true },
+        '/tools/uuid-generator': { title: 'UUID 생성기', showAppBar: true },
+        '/tools/password-generator': { title: '비밀번호 생성기', showAppBar: true },
+        '/tools/hash-generator': { title: '해시 생성기', showAppBar: true },
+        '/tools/qr-generator': { title: 'QR코드 생성기', showAppBar: true },
+
         '/debug': { title: '디버그', showAppBar: false },
       }
 

@@ -88,7 +88,7 @@ const formatDate = (dateString: string) => {
                 v-if="comment.profileImage"
                 :src="comment.profileImage"
                 :alt="comment.nickname"
-              >
+              />
               <Icon v-else name="mdi:account-circle" />
             </div>
             <div class="author-details">
