@@ -70,8 +70,8 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebApplication',
-        name: '글자수 세기',
-        description: '텍스트의 글자 수, 단어 수, 바이트 수를 실시간으로 확인할 수 있는 도구',
+        name: t('tools.characterCounter.title'),
+        description: t('tools.characterCounter.description'),
         applicationCategory: 'UtilityApplication',
         offers: {
           '@type': 'Offer',

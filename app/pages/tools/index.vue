@@ -77,7 +77,7 @@ useHead({
       name: 'description',
       content: t('tools.index.description'),
     },
-    { name: 'keywords', content: '웹툴, 유틸리티, 개발자도구, 온라인도구, 무료도구' },
+    { name: 'keywords', content: 'web tools, utilities, developer tools, online tools, free tools' },
     // Open Graph
     { property: 'og:type', content: 'website' },
     { property: 'og:title', content: `${t('tools.index.title')} - ${t('common.title')}` },
@@ -95,8 +95,8 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'CollectionPage',
-        name: '무설치 유틸리티',
-        description: '다양한 웹 기반 유틸리티 도구 모음',
+        name: t('common.title'),
+        description: t('tools.index.description'),
       }),
     },
   ],

@@ -32,28 +32,30 @@ const copyToClipboard = async (text: string) => {
 }
 
 onMounted(() => {
-  fetchIPInfo()
+  // Always fetch fresh IP info to detect network changes (WiFi to cellular)
+  fetchIPInfo(true)
 })
 
+const { t } = useI18n()
+
 useHead({
-  title: '내 IP 주소 - 무설치 유팉리티',
+  title: `${t('tools.myIp.title')} - ${t('common.title')}`,
   meta: [
     {
       name: 'description',
-      content:
-        '현재 사용 중인 IP 주소와 위치 정보를 확인할 수 있습니다. 국가, 지역, 도시, ISP 정보를 실시간으로 조회하세요.',
+      content: t('tools.myIp.description'),
     },
-    { name: 'keywords', content: '내아이피, IP주소확인, IP조회, 위치정보, ISP확인, 아이피주소' },
+    { name: 'keywords', content: 'IP address, check IP, my IP, location info, ISP check, public IP' },
     // Open Graph
     { property: 'og:type', content: 'website' },
-    { property: 'og:title', content: '내 IP 주소 - 무설치 유팉리티' },
-    { property: 'og:description', content: '현재 사용 중인 IP 주소와 위치 정보를 확인' },
-    { property: 'og:site_name', content: '무설치 유틸리티' },
+    { property: 'og:title', content: `${t('tools.myIp.title')} - ${t('common.title')}` },
+    { property: 'og:description', content: t('tools.myIp.description') },
+    { property: 'og:site_name', content: t('common.title') },
     { property: 'og:locale', content: 'ko_KR' },
     // Twitter Card
     { name: 'twitter:card', content: 'summary' },
-    { name: 'twitter:title', content: '내 IP 주소 - 무설치 유팉리티' },
-    { name: 'twitter:description', content: '현재 사용 중인 IP 주소와 위치 정보를 확인' },
+    { name: 'twitter:title', content: `${t('tools.myIp.title')} - ${t('common.title')}` },
+    { name: 'twitter:description', content: t('tools.myIp.description') },
   ],
   script: [
     {
@@ -61,8 +63,8 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebApplication',
-        name: '내 IP 주소',
-        description: '현재 사용 중인 IP 주소와 위치 정보를 확인할 수 있는 도구',
+        name: t('tools.myIp.title'),
+        description: t('tools.myIp.description'),
         applicationCategory: 'UtilityApplication',
         offers: {
           '@type': 'Offer',
