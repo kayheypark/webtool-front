@@ -66,15 +66,15 @@ onUnmounted(() => {
 <template>
   <div class="mobile-menu">
     <!-- Hamburger Button -->
-    <button class="hamburger-button" @click="toggleMenu" aria-label="Menu">
-      <span class="hamburger-line" :class="{ open: isOpen }"></span>
-      <span class="hamburger-line" :class="{ open: isOpen }"></span>
-      <span class="hamburger-line" :class="{ open: isOpen }"></span>
+    <button aria-label="Menu" class="hamburger-button" @click="toggleMenu">
+      <span class="hamburger-line" :class="{ open: isOpen }" />
+      <span class="hamburger-line" :class="{ open: isOpen }" />
+      <span class="hamburger-line" :class="{ open: isOpen }" />
     </button>
 
     <!-- Overlay -->
     <Transition name="overlay">
-      <div v-if="isOpen" class="menu-overlay" @click="closeMenu"></div>
+      <div v-if="isOpen" class="menu-overlay" @click="closeMenu" />
     </Transition>
 
     <!-- Menu Panel -->
@@ -88,7 +88,7 @@ onUnmounted(() => {
         </div>
 
         <nav class="menu-nav">
-          <template v-for="item in menuItems" :key="item.path">
+          <template v-for="item in props.menuItems" :key="item.path">
             <div class="menu-section">
               <!-- Main Menu Item -->
               <div class="menu-item-wrapper">
