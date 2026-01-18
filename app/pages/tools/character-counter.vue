@@ -50,13 +50,19 @@ useHead({
     // Open Graph
     { property: 'og:type', content: 'website' },
     { property: 'og:title', content: '글자수 세기 - 무설치 유팉리티' },
-    { property: 'og:description', content: '텍스트의 글자 수, 단어 수, 바이트 수를 실시간으로 확인할 수 있는 글자수 세기 도구' },
-    { property: 'og:site_name', content: '씨앗의 웹툴' },
+    {
+      property: 'og:description',
+      content: '텍스트의 글자 수, 단어 수, 바이트 수를 실시간으로 확인할 수 있는 글자수 세기 도구',
+    },
+    { property: 'og:site_name', content: '무설치 유틸리티' },
     { property: 'og:locale', content: 'ko_KR' },
     // Twitter Card
     { name: 'twitter:card', content: 'summary' },
     { name: 'twitter:title', content: '글자수 세기 - 무설치 유팉리티' },
-    { name: 'twitter:description', content: '텍스트의 글자 수, 단어 수, 바이트 수를 실시간으로 확인' },
+    {
+      name: 'twitter:description',
+      content: '텍스트의 글자 수, 단어 수, 바이트 수를 실시간으로 확인',
+    },
   ],
   script: [
     {

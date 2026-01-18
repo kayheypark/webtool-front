@@ -57,21 +57,30 @@ const tools: Tool[] = [
     path: '/tools/qr-generator',
     color: '#10b981',
   },
+  {
+    title: 'WiFi QR 생성기',
+    description: 'WiFi 네트워크를 QR 코드로 공유',
+    iconColor: '#ffffff',
+    icon: 'mdi:wifi-cog',
+    path: '/tools/wifi-qr',
+    color: '#0ea5e9',
+  },
 ]
 
 useHead({
-  title: '웹툴 - 무설치 유팉리티',
+  title: '무설치 유팉리티',
   meta: [
     {
       name: 'description',
-      content: '다양한 웹 기반 유틸리티 도구 모음. 글자수 세기, 내 아이피, UUID 생성기, 비밀번호 생성기, 해시 생성기, QR코드 생성기를 무료로 이용하세요.',
+      content:
+        '다양한 웹 기반 유틸리티 도구 모음. 글자수 세기, 내 아이피, UUID 생성기, 비밀번호 생성기, 해시 생성기, QR코드 생성기, WiFi QR 생성기를 무료로 이용하세요.',
     },
     { name: 'keywords', content: '웹툴, 유틸리티, 개발자도구, 온라인도구, 무료도구' },
     // Open Graph
     { property: 'og:type', content: 'website' },
     { property: 'og:title', content: '웹툴 - 무설치 유팉리티' },
     { property: 'og:description', content: '다양한 웹 기반 유틸리티 도구 모음' },
-    { property: 'og:site_name', content: '씨앗의 웹툴' },
+    { property: 'og:site_name', content: '무설치 유틸리티' },
     { property: 'og:locale', content: 'ko_KR' },
     // Twitter Card
     { name: 'twitter:card', content: 'summary' },
@@ -84,7 +93,7 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'CollectionPage',
-        name: '웹툴',
+        name: '무설치 유틸리티',
         description: '다양한 웹 기반 유틸리티 도구 모음',
       }),
     },

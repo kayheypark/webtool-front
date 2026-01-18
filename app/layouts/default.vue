@@ -16,7 +16,7 @@ const menuItems: MenuItem[] = [
     path: '/',
   },
   {
-    title: '웹툴',
+    title: '유틸리티',
     icon: 'mdi:tools',
     path: '/tools',
     children: [
@@ -26,6 +26,7 @@ const menuItems: MenuItem[] = [
       { title: '비밀번호 생성기', icon: '', path: '/tools/password-generator' },
       { title: '해시 생성기', icon: '', path: '/tools/hash-generator' },
       { title: 'QR코드 생성기', icon: '', path: '/tools/qr-generator' },
+      { title: 'WiFi QR 생성기', icon: '', path: '/tools/wifi-qr' },
     ],
   },
 ]
@@ -51,7 +52,7 @@ const toggleSidebar = () => {
     <!-- Sidebar -->
     <aside class="sidebar" :class="{ collapsed: isSidebarCollapsed }">
       <div class="sidebar-header">
-        <h1 v-show="!isSidebarCollapsed" class="logo">씨앗의 웹툴</h1>
+        <h1 v-show="!isSidebarCollapsed" class="logo">ssiat.link</h1>
         <button class="toggle-button" @click="toggleSidebar">
           <Icon :name="isSidebarCollapsed ? 'mdi:arrow-right' : 'mdi:arrow-left'" />
         </button>
@@ -314,7 +315,11 @@ const toggleSidebar = () => {
 
 .page-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--fe-bg-gradient-start) 0%, var(--fe-bg-gradient-end) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--fe-bg-gradient-start) 0%,
+    var(--fe-bg-gradient-end) 100%
+  );
   padding: 40px 20px;
 
   @media (max-width: 768px) {

@@ -1,22 +1,33 @@
 <script setup lang="ts">
 useHead({
-  title: '씨앗의 웹툴 - 무설치 유팉리티',
+  title: '무설치 유팉리티',
   meta: [
     {
       name: 'description',
-      content: '로그인 필요없는, 개발자와 일반 사용자를 위한 웹 기반 유틸리티 도구. 글자수 세기, UUID 생성기, 비밀번호 생성기, 해시 생성기, QR코드 생성기 등 다양한 도구를 무료로 사용하세요.',
+      content:
+        '로그인 필요없는, 개발자와 일반 사용자를 위한 웹 기반 유틸리티 도구. 글자수 세기, UUID 생성기, 비밀번호 생성기, 해시 생성기, QR코드 생성기, WiFi QR 생성기 등 다양한 도구를 무료로 사용하세요.',
     },
-    { name: 'keywords', content: '웹툴, 유틸리티, 개발자도구, 글자수세기, UUID생성기, 비밀번호생성기, 해시생성기, QR코드생성기, 무료도구' },
+    {
+      name: 'keywords',
+      content:
+        '웹툴, 유틸리티, 개발자도구, 글자수세기, UUID생성기, 비밀번호생성기, 해시생성기, QR코드생성기, WiFi QR생성기, 무료도구',
+    },
     // Open Graph
     { property: 'og:type', content: 'website' },
-    { property: 'og:title', content: '씨앗의 웹툴 - 무설치 유팉리티' },
-    { property: 'og:description', content: '로그인 필요없는, 개발자와 일반 사용자를 위한 웹 기반 유틸리티 도구' },
-    { property: 'og:site_name', content: '씨앗의 웹툴' },
+    { property: 'og:title', content: '무설치 유팉리티' },
+    {
+      property: 'og:description',
+      content: '로그인 필요없는, 개발자와 일반 사용자를 위한 웹 기반 유틸리티 도구',
+    },
+    { property: 'og:site_name', content: '무설치 유틸리티' },
     { property: 'og:locale', content: 'ko_KR' },
     // Twitter Card
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: '씨앗의 웹툴 - 무설치 유팉리티' },
-    { name: 'twitter:description', content: '로그인 필요없는, 개발자와 일반 사용자를 위한 웹 기반 유틸리티 도구' },
+    { name: 'twitter:title', content: '무설치 유팉리티' },
+    {
+      name: 'twitter:description',
+      content: '로그인 필요없는, 개발자와 일반 사용자를 위한 웹 기반 유틸리티 도구',
+    },
   ],
   script: [
     {
@@ -24,7 +35,7 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebApplication',
-        name: '씨앗의 웹툴',
+        name: '무설치 유틸리티',
         description: '로그인 필요없는, 개발자와 일반 사용자를 위한 웹 기반 유틸리티 도구',
         applicationCategory: 'UtilityApplication',
         offers: {
@@ -39,6 +50,7 @@ useHead({
           '비밀번호 생성기',
           '해시 생성기',
           'QR코드 생성기',
+          'WiFi QR 생성기',
         ],
       }),
     },
@@ -51,7 +63,7 @@ useHead({
     <div class="content">
       <!-- Hero Section -->
       <section class="hero">
-        <h1 class="title">씨앗의 웹툴</h1>
+        <h1 class="title">무설치 유틸리티</h1>
         <p class="subtitle">로그인 필요없는, 개발자와 일반 사용자를 위한 웹 기반 유틸리티 도구</p>
         <NuxtLink to="/tools" class="cta-button">
           <Icon name="mdi:tools" />
@@ -74,7 +86,7 @@ useHead({
             <Icon name="mdi:shield-check" />
           </div>
           <h3 class="feature-title">안전한 처리</h3>
-          <p class="feature-description">모든 데이터는 브라우저 내에서만 처리</p>
+          <p class="feature-description">모든 데이터는 브라우저 내에서만 처리 (IP 유틸리티 제외)</p>
         </div>
 
         <div class="feature-card">
@@ -113,6 +125,10 @@ useHead({
           <div class="tool-item">
             <Icon name="mdi:qrcode" />
             <span>QR코드 생성기</span>
+          </div>
+          <div class="tool-item">
+            <Icon name="mdi:wifi-cog" />
+            <span>WiFi QR 생성기</span>
           </div>
         </div>
       </section>

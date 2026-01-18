@@ -77,7 +77,7 @@ useHead({
     { property: 'og:type', content: 'website' },
     { property: 'og:title', content: '비밀번호 생성기 - 무설치 유팉리티' },
     { property: 'og:description', content: '안전하고 강력한 랜덤 비밀번호를 생성' },
-    { property: 'og:site_name', content: '씨앗의 웹툴' },
+    { property: 'og:site_name', content: '무설치 유틸리티' },
     { property: 'og:locale', content: 'ko_KR' },
     // Twitter Card
     { name: 'twitter:card', content: 'summary' },

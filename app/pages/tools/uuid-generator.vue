@@ -49,14 +49,15 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'UUID(Universally Unique Identifier)를 생성하는 도구입니다. UUID v4 형식으로 고유한 식별자를 생성하고 복사할 수 있습니다.',
+      content:
+        'UUID(Universally Unique Identifier)를 생성하는 도구입니다. UUID v4 형식으로 고유한 식별자를 생성하고 복사할 수 있습니다.',
     },
     { name: 'keywords', content: 'UUID생성기, GUID생성기, 고유식별자, UUID생성, 랜덤UUID' },
     // Open Graph
     { property: 'og:type', content: 'website' },
     { property: 'og:title', content: 'UUID 생성기 - 무설치 유팉리티' },
     { property: 'og:description', content: 'UUID v4 형식으로 고유한 식별자를 생성' },
-    { property: 'og:site_name', content: '씨앗의 웹툴' },
+    { property: 'og:site_name', content: '무설치 유틸리티' },
     { property: 'og:locale', content: 'ko_KR' },
     // Twitter Card
     { name: 'twitter:card', content: 'summary' },
@@ -95,52 +96,52 @@ useHead({
       <p class="header-description">고유한 UUID를 생성하세요</p>
     </div>
 
-      <div class="content">
-        <div class="card control-card">
-          <div class="control-group">
-            <label class="control-label">생성 개수</label>
-            <input v-model.number="count" type="number" min="1" max="100" class="control-input" />
-          </div>
-          <div class="button-group">
-            <button class="btn btn-primary" @click="handleGenerate">
-              <Icon name="mdi:refresh" />
-              생성
-            </button>
-            <button v-if="uuids.length > 0" class="btn btn-secondary" @click="copyAll">
-              <Icon name="mdi:content-copy" />
-              모두 복사
-            </button>
-          </div>
+    <div class="content">
+      <div class="card control-card">
+        <div class="control-group">
+          <label class="control-label">생성 개수</label>
+          <input v-model.number="count" type="number" min="1" max="100" class="control-input" />
         </div>
-
-        <div v-if="uuids.length > 0" class="uuid-list">
-          <div v-for="(uuid, index) in uuids" :key="index" class="uuid-item card">
-            <code class="uuid-code">{{ uuid }}</code>
-            <button class="btn-copy-small" @click="copyToClipboard(uuid)">
-              <Icon name="mdi:content-copy" />
-            </button>
-          </div>
+        <div class="button-group">
+          <button class="btn btn-primary" @click="handleGenerate">
+            <Icon name="mdi:refresh" />
+            생성
+          </button>
+          <button v-if="uuids.length > 0" class="btn btn-secondary" @click="copyAll">
+            <Icon name="mdi:content-copy" />
+            모두 복사
+          </button>
         </div>
+      </div>
 
-        <div class="card info-section">
-          <h2 class="info-title">
-            <Icon name="mdi:information" />
-            UUID란?
-          </h2>
-          <ul class="info-list">
-            <li class="info-item">
-              <Icon name="mdi:check-circle" />
-              <span>UUID는 범용 고유 식별자로, 중복 가능성이 거의 없는 고유한 ID입니다</span>
-            </li>
-            <li class="info-item">
-              <Icon name="mdi:check-circle" />
-              <span>Version 4 UUID를 생성하며, 무작위로 생성됩니다</span>
-            </li>
-            <li class="info-item">
-              <Icon name="mdi:check-circle" />
-              <span>데이터베이스 ID, 파일명, 세션 ID 등에 사용됩니다</span>
-            </li>
-          </ul>
+      <div v-if="uuids.length > 0" class="uuid-list">
+        <div v-for="(uuid, index) in uuids" :key="index" class="uuid-item card">
+          <code class="uuid-code">{{ uuid }}</code>
+          <button class="btn-copy-small" @click="copyToClipboard(uuid)">
+            <Icon name="mdi:content-copy" />
+          </button>
+        </div>
+      </div>
+
+      <div class="card info-section">
+        <h2 class="info-title">
+          <Icon name="mdi:information" />
+          UUID란?
+        </h2>
+        <ul class="info-list">
+          <li class="info-item">
+            <Icon name="mdi:check-circle" />
+            <span>UUID는 범용 고유 식별자로, 중복 가능성이 거의 없는 고유한 ID입니다</span>
+          </li>
+          <li class="info-item">
+            <Icon name="mdi:check-circle" />
+            <span>Version 4 UUID를 생성하며, 무작위로 생성됩니다</span>
+          </li>
+          <li class="info-item">
+            <Icon name="mdi:check-circle" />
+            <span>데이터베이스 ID, 파일명, 세션 ID 등에 사용됩니다</span>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -198,7 +199,6 @@ useHead({
     border-color: var(--fe-primary);
   }
 }
-
 
 .uuid-list {
   display: flex;

@@ -96,7 +96,7 @@ useHead({
     { property: 'og:type', content: 'website' },
     { property: 'og:title', content: 'QR코드 생성기 - 무설치 유팉리티' },
     { property: 'og:description', content: '텍스트나 URL을 QR 코드로 변환' },
-    { property: 'og:site_name', content: '씨앗의 웹툴' },
+    { property: 'og:site_name', content: '무설치 유틸리티' },
     { property: 'og:locale', content: 'ko_KR' },
     // Twitter Card
     { name: 'twitter:card', content: 'summary' },

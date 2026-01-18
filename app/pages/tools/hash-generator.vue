@@ -214,14 +214,15 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'MD5, SHA-1, SHA-256, SHA-512 해시를 생성하는 도구입니다. 텍스트를 입력하면 실시간으로 다양한 해시 알고리즘의 결과를 확인할 수 있습니다.',
+      content:
+        'MD5, SHA-1, SHA-256, SHA-512 해시를 생성하는 도구입니다. 텍스트를 입력하면 실시간으로 다양한 해시 알고리즘의 결과를 확인할 수 있습니다.',
     },
     { name: 'keywords', content: '해시생성기, MD5생성, SHA256생성, 암호화해시, 해시함수' },
     // Open Graph
     { property: 'og:type', content: 'website' },
     { property: 'og:title', content: '해시 생성기 - 무설치 유팉리티' },
     { property: 'og:description', content: 'MD5, SHA-1, SHA-256, SHA-512 해시를 생성' },
-    { property: 'og:site_name', content: '씨앗의 웹툴' },
+    { property: 'og:site_name', content: '무설치 유틸리티' },
     { property: 'og:locale', content: 'ko_KR' },
     // Twitter Card
     { name: 'twitter:card', content: 'summary' },
@@ -261,84 +262,84 @@ useHead({
     </div>
 
     <div class="content">
-        <!-- Input -->
-        <div class="card">
-          <label class="input-label">입력 텍스트</label>
-          <textarea
-            v-model="input"
-            class="textarea"
-            placeholder="해시를 생성할 텍스트를 입력하세요..."
-            rows="6"
-          />
+      <!-- Input -->
+      <div class="card">
+        <label class="input-label">입력 텍스트</label>
+        <textarea
+          v-model="input"
+          class="textarea"
+          placeholder="해시를 생성할 텍스트를 입력하세요..."
+          rows="6"
+        />
+      </div>
+
+      <!-- Hash Results -->
+      <div v-if="input" class="hash-results">
+        <div class="hash-item card">
+          <div class="hash-header">
+            <span class="hash-name">MD5</span>
+            <button class="btn-copy-small" @click="copyToClipboard(hashes.md5)">
+              <Icon name="mdi:content-copy" />
+            </button>
+          </div>
+          <code class="hash-value">{{ hashes.md5 }}</code>
         </div>
 
-        <!-- Hash Results -->
-        <div v-if="input" class="hash-results">
-          <div class="hash-item card">
-            <div class="hash-header">
-              <span class="hash-name">MD5</span>
-              <button class="btn-copy-small" @click="copyToClipboard(hashes.md5)">
-                <Icon name="mdi:content-copy" />
-              </button>
-            </div>
-            <code class="hash-value">{{ hashes.md5 }}</code>
+        <div class="hash-item card">
+          <div class="hash-header">
+            <span class="hash-name">SHA-1</span>
+            <button class="btn-copy-small" @click="copyToClipboard(hashes.sha1)">
+              <Icon name="mdi:content-copy" />
+            </button>
           </div>
-
-          <div class="hash-item card">
-            <div class="hash-header">
-              <span class="hash-name">SHA-1</span>
-              <button class="btn-copy-small" @click="copyToClipboard(hashes.sha1)">
-                <Icon name="mdi:content-copy" />
-              </button>
-            </div>
-            <code class="hash-value">{{ hashes.sha1 }}</code>
-          </div>
-
-          <div class="hash-item card">
-            <div class="hash-header">
-              <span class="hash-name">SHA-256</span>
-              <button class="btn-copy-small" @click="copyToClipboard(hashes.sha256)">
-                <Icon name="mdi:content-copy" />
-              </button>
-            </div>
-            <code class="hash-value">{{ hashes.sha256 }}</code>
-          </div>
-
-          <div class="hash-item card">
-            <div class="hash-header">
-              <span class="hash-name">SHA-512</span>
-              <button class="btn-copy-small" @click="copyToClipboard(hashes.sha512)">
-                <Icon name="mdi:content-copy" />
-              </button>
-            </div>
-            <code class="hash-value">{{ hashes.sha512 }}</code>
-          </div>
+          <code class="hash-value">{{ hashes.sha1 }}</code>
         </div>
 
-        <!-- Info -->
-        <div class="card info-section">
-          <h2 class="info-title">
-            <Icon name="mdi:information" />
-            해시 알고리즘 정보
-          </h2>
-          <ul class="info-list">
-            <li class="info-item">
-              <Icon name="mdi:check-circle" />
-              <span><strong>MD5:</strong> 128비트 해시, 보안용으로는 권장되지 않음</span>
-            </li>
-            <li class="info-item">
-              <Icon name="mdi:check-circle" />
-              <span><strong>SHA-1:</strong> 160비트 해시, 보안용으로는 권장되지 않음</span>
-            </li>
-            <li class="info-item">
-              <Icon name="mdi:check-circle" />
-              <span><strong>SHA-256:</strong> 256비트 해시, 안전한 암호화 해시 함수</span>
-            </li>
-            <li class="info-item">
-              <Icon name="mdi:check-circle" />
-              <span><strong>SHA-512:</strong> 512비트 해시, 가장 강력한 암호화 해시 함수</span>
-            </li>
-          </ul>
+        <div class="hash-item card">
+          <div class="hash-header">
+            <span class="hash-name">SHA-256</span>
+            <button class="btn-copy-small" @click="copyToClipboard(hashes.sha256)">
+              <Icon name="mdi:content-copy" />
+            </button>
+          </div>
+          <code class="hash-value">{{ hashes.sha256 }}</code>
+        </div>
+
+        <div class="hash-item card">
+          <div class="hash-header">
+            <span class="hash-name">SHA-512</span>
+            <button class="btn-copy-small" @click="copyToClipboard(hashes.sha512)">
+              <Icon name="mdi:content-copy" />
+            </button>
+          </div>
+          <code class="hash-value">{{ hashes.sha512 }}</code>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="card info-section">
+        <h2 class="info-title">
+          <Icon name="mdi:information" />
+          해시 알고리즘 정보
+        </h2>
+        <ul class="info-list">
+          <li class="info-item">
+            <Icon name="mdi:check-circle" />
+            <span><strong>MD5:</strong> 128비트 해시, 보안용으로는 권장되지 않음</span>
+          </li>
+          <li class="info-item">
+            <Icon name="mdi:check-circle" />
+            <span><strong>SHA-1:</strong> 160비트 해시, 보안용으로는 권장되지 않음</span>
+          </li>
+          <li class="info-item">
+            <Icon name="mdi:check-circle" />
+            <span><strong>SHA-256:</strong> 256비트 해시, 안전한 암호화 해시 함수</span>
+          </li>
+          <li class="info-item">
+            <Icon name="mdi:check-circle" />
+            <span><strong>SHA-512:</strong> 512비트 해시, 가장 강력한 암호화 해시 함수</span>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

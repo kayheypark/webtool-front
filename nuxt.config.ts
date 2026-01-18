@@ -104,6 +104,7 @@ export default defineNuxtConfig({
         '/tools/password-generator': { title: '비밀번호 생성기', showAppBar: true },
         '/tools/hash-generator': { title: '해시 생성기', showAppBar: true },
         '/tools/qr-generator': { title: 'QR코드 생성기', showAppBar: true },
+        '/tools/wifi-qr': { title: 'WiFi QR 생성기', showAppBar: true },
 
         '/debug': { title: '디버그', showAppBar: false },
       }
