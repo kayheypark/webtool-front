@@ -36,7 +36,7 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebApplication',
-        name: '무설치 유틸리티',
+        name: '웹툴',
         description: '로그인 필요없는, 개발자와 일반 사용자를 위한 웹 기반 유틸리티 도구',
         applicationCategory: 'UtilityApplication',
         offers: {
