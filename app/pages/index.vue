@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
+const localePath = useLocalePath()
 
 useHead({
   title: t('common.title'),
@@ -52,6 +53,7 @@ useHead({
           '해시 생성기',
           'QR코드 생성기',
           'WiFi QR 생성기',
+          '서명 생성기',
         ],
       }),
     },
@@ -66,7 +68,7 @@ useHead({
       <section class="hero">
         <h1 class="title">{{ $t('home.title') }}</h1>
         <p class="subtitle">{{ $t('home.subtitle') }}</p>
-        <NuxtLink to="/tools" class="cta-button">
+        <NuxtLink :to="localePath('/tools')" class="cta-button">
           <Icon name="mdi:tools" />
           {{ $t('nav.tools') }}
         </NuxtLink>
@@ -130,6 +132,10 @@ useHead({
           <div class="tool-item">
             <Icon name="mdi:wifi-cog" />
             <span>{{ $t('tools.wifiQr.shortTitle') }}</span>
+          </div>
+          <div class="tool-item">
+            <Icon name="mdi:draw-pen" />
+            <span>{{ $t('tools.signatureGenerator.shortTitle') }}</span>
           </div>
         </div>
       </section>

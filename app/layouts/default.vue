@@ -50,6 +50,11 @@ const menuItems = computed<MenuItem[]>(() => [
         path: localePath('/tools/qr-generator'),
       },
       { title: t('tools.wifiQr.shortTitle'), icon: '', path: localePath('/tools/wifi-qr') },
+      {
+        title: t('tools.signatureGenerator.shortTitle'),
+        icon: '',
+        path: localePath('/tools/signature-generator'),
+      },
     ],
   },
 ])

@@ -234,6 +234,37 @@
         "item4": "Generated QR codes can be downloaded as PNG images"
       }
     },
+    "signatureGenerator": {
+      "title": "Signature Generator",
+      "shortTitle": "Signature",
+      "description": "Create and download digital signatures",
+      "metaDescription": "Online signature generator that lets you draw digital signatures with mouse or touch and save them as image files.",
+      "background": "Background",
+      "white": "White",
+      "black": "Black",
+      "transparent": "Transparent",
+      "penColor": "Pen Color",
+      "blue": "Blue",
+      "red": "Red",
+      "penWidth": "Pen Width",
+      "thin": "Thin",
+      "normal": "Normal",
+      "thick": "Thick",
+      "veryThick": "Very Thick",
+      "undo": "Undo",
+      "redo": "Redo",
+      "clear": "Clear All",
+      "format": "File Format",
+      "downloadSuccess": "Signature downloaded successfully",
+      "copyError": "Failed to copy to clipboard",
+      "info": {
+        "title": "How to Use",
+        "item1": "Draw your signature on the canvas using mouse or touch",
+        "item2": "Customize background color, pen color, and thickness",
+        "item3": "Use undo/redo to correct mistakes",
+        "item4": "Download as PNG or JPG format"
+      }
+    },
     "wifiQr": {
       "title": "WiFi QR Generator",
       "shortTitle": "WiFi QR",

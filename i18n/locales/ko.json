@@ -234,6 +234,37 @@
         "item4": "생성된 QR 코드는 PNG 이미지로 다운로드할 수 있습니다"
       }
     },
+    "signatureGenerator": {
+      "title": "서명 생성기",
+      "shortTitle": "서명 생성기",
+      "description": "디지털 서명을 생성하고 다운로드하세요",
+      "metaDescription": "마우스나 터치로 디지털 서명을 그리고 이미지 파일로 저장할 수 있는 온라인 서명 생성기입니다.",
+      "background": "배경색",
+      "white": "흰색",
+      "black": "검은색",
+      "transparent": "투명",
+      "penColor": "펜 색상",
+      "blue": "파란색",
+      "red": "빨간색",
+      "penWidth": "펜 두께",
+      "thin": "얇게",
+      "normal": "보통",
+      "thick": "굵게",
+      "veryThick": "매우 굵게",
+      "undo": "실행 취소",
+      "redo": "다시 실행",
+      "clear": "전체 지우기",
+      "format": "파일 형식",
+      "downloadSuccess": "서명이 다운로드되었습니다",
+      "copyError": "클립보드 복사에 실패했습니다",
+      "info": {
+        "title": "사용 안내",
+        "item1": "마우스나 터치로 캔버스에 서명을 그리세요",
+        "item2": "배경색과 펜 색상, 두께를 자유롭게 설정할 수 있습니다",
+        "item3": "실행 취소/다시 실행으로 작업을 되돌릴 수 있습니다",
+        "item4": "PNG 또는 JPG 형식으로 다운로드할 수 있습니다"
+      }
+    },
     "wifiQr": {
       "title": "WiFi QR 생성기",
       "shortTitle": "WiFi QR",

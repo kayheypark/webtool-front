@@ -68,6 +68,14 @@ const tools: Tool[] = [
     path: '/tools/wifi-qr',
     color: '#0ea5e9',
   },
+  {
+    titleKey: 'tools.signatureGenerator.shortTitle',
+    descriptionKey: 'tools.signatureGenerator.description',
+    iconColor: '#ffffff',
+    icon: 'mdi:draw-pen',
+    path: '/tools/signature-generator',
+    color: '#6366f1',
+  },
 ]
 
 useHead({
