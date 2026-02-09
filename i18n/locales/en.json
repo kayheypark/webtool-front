@@ -7,6 +7,7 @@
     "copyFailed": "Failed to copy",
     "generate": "Generate",
     "reset": "Reset",
+    "refresh": "Refresh",
     "download": "Download",
     "downloaded": "Downloaded",
     "loading": "Loading...",
@@ -100,6 +101,7 @@
       "coordinates": "Coordinates",
       "refreshing": "Refreshing...",
       "refreshInfo": "Refresh Info",
+      "cachedData": "Cached Data",
       "info": {
         "title": "Information",
         "item1": "The displayed IP address is your current public IP address",

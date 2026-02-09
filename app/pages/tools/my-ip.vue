@@ -4,15 +4,27 @@ const { showToast } = useToast()
 
 const loading = ref(true)
 const error = ref<string | null>(null)
+const isFromCache = ref(false)
 
-const ipInfo = computed(() => ipInfoStore.ipInfo)
+const ipInfo = computed(() => ipInfoStore.currentIPInfo)
 
-const fetchIPInfo = async (force = false) => {
+const fetchIPInfo = async (forceRefresh = false) => {
   loading.value = true
   error.value = null
+  isFromCache.value = false
 
   try {
-    await ipInfoStore.fetchIPInfo(force)
+    // 먼저 현재 IP 확인
+    const currentIP = await ipInfoStore.getCurrentIP()
+
+    // 캐시 확인
+    if (!forceRefresh && ipInfoStore.hasCurrentIPCache(currentIP)) {
+      isFromCache.value = true
+      console.log('캐시된 데이터 사용')
+    }
+
+    // IP 정보 가져오기 (캐시가 있으면 캐시 사용, 없으면 새로 조회)
+    await ipInfoStore.fetchIPInfo(forceRefresh)
   } catch (err) {
     console.error('IP 정보 조회 실패:', err)
     error.value = 'IP 정보를 가져오는데 실패했습니다.'
@@ -32,8 +44,11 @@ const copyToClipboard = async (text: string) => {
 }
 
 onMounted(() => {
-  // Always fetch fresh IP info to detect network changes (WiFi to cellular)
-  fetchIPInfo(true)
+  // IP 변경 감지하여 자동으로 캐시 또는 새로 조회
+  fetchIPInfo(false)
+
+  // 오래된 캐시 정리
+  ipInfoStore.cleanOldCache()
 })
 
 const { t } = useI18n()
@@ -112,10 +127,26 @@ useHead({
       <div class="ip-card">
         <div class="ip-label">{{ $t('tools.myIp.yourIp') }}</div>
         <div class="ip-value">{{ ipInfo.ip }}</div>
-        <button class="btn btn-copy" @click="copyToClipboard(ipInfo.ip)">
-          <Icon name="mdi:content-copy" />
-          {{ $t('common.copy') }}
-        </button>
+        <div class="ip-actions">
+          <button class="btn btn-copy" @click="copyToClipboard(ipInfo.ip)">
+            <Icon name="mdi:content-copy" />
+            {{ $t('common.copy') }}
+          </button>
+          <button class="btn btn-refresh" @click="() => fetchIPInfo(true)">
+            <Icon name="mdi:refresh" />
+            {{ $t('common.refresh') }}
+          </button>
+          <!-- 개발용: 캐시 삭제 버튼 (나중에 제거) -->
+          <button v-if="false" class="btn btn-clear" @click="() => { ipInfoStore.clearAllCache(); fetchIPInfo(false) }">
+            <Icon name="mdi:delete" />
+            캐시 삭제
+          </button>
+        </div>
+        <!-- 캐시 상태 표시 -->
+        <div v-if="isFromCache" class="cache-indicator">
+          <Icon name="mdi:database" />
+          <span>{{ $t('tools.myIp.cachedData') }}</span>
+        </div>
       </div>
 
       <!-- Details Grid -->
@@ -273,11 +304,19 @@ useHead({
   word-break: break-all;
 }
 
-.btn-copy {
+.ip-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.btn-copy,
+.btn-refresh {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 32px;
+  padding: 12px 24px;
   background: white;
   color: var(--fe-primary);
   border: none;
@@ -299,6 +338,22 @@ useHead({
 
   &:active {
     transform: translateY(0);
+  }
+}
+
+.cache-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.9);
+
+  :deep(svg) {
+    width: 14px;
+    height: 14px;
   }
 }
 

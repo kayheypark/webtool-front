@@ -13,8 +13,13 @@ export default defineEventHandler(async (event) => {
   const clientIp = ip === '::1' || ip === '::ffff:127.0.0.1' ? '127.0.0.1' : ip
 
   try {
-    // localhost인 경우 외부 API로 실제 공인 IP 조회
-    if (clientIp === '127.0.0.1' || clientIp.startsWith('192.168.') || clientIp.startsWith('10.')) {
+    // localhost 또는 사설 IP인 경우 외부 API로 실제 공인 IP 조회
+    if (
+      clientIp === '127.0.0.1' ||
+      clientIp.startsWith('192.168.') ||
+      clientIp.startsWith('10.') ||
+      clientIp.startsWith('172.')  // 172.16.0.0 ~ 172.31.255.255 사설 IP 대역 포함
+    ) {
       const ipResponse = await $fetch<{ ip: string }>('https://api.ipify.org?format=json')
       const publicIp = ipResponse.ip
 
