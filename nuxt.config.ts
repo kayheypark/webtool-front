@@ -40,6 +40,8 @@ export default defineNuxtConfig({
     locales: [
       { code: 'ko', language: 'ko-KR', file: 'ko.json', name: '한국어' },
       { code: 'en', language: 'en-US', file: 'en.json', name: 'English' },
+      { code: 'de', language: 'de-DE', file: 'de.json', name: 'Deutsch' },
+      { code: 'ja', language: 'ja-JP', file: 'ja.json', name: '日本語' },
     ],
     defaultLocale: 'ko',
     langDir: 'locales',

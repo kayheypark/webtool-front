@@ -1,0 +1,276 @@
+{
+  "common": {
+    "title": "無料ウェブツール",
+    "description": "日常生活に便利なシンプルで高速、無料のオンラインツール",
+    "copy": "コピー",
+    "copied": "コピーしました",
+    "generate": "生成",
+    "clear": "クリア",
+    "download": "ダウンロード",
+    "upload": "アップロード",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "close": "閉じる",
+    "confirm": "確認",
+    "delete": "削除",
+    "edit": "編集",
+    "search": "検索",
+    "settings": "設定",
+    "help": "ヘルプ",
+    "about": "概要",
+    "contact": "お問い合わせ",
+    "privacy": "プライバシー",
+    "terms": "利用規約",
+    "language": "言語",
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "success": "成功",
+    "warning": "警告",
+    "info": "情報",
+    "back": "戻る",
+    "next": "次へ",
+    "previous": "前へ",
+    "finish": "完了",
+    "reset": "リセット",
+    "refresh": "更新",
+    "retry": "再試行",
+    "share": "共有",
+    "copyLink": "リンクをコピー",
+    "linkCopied": "リンクをコピーしました！",
+    "more": "もっと見る",
+    "less": "少なく表示",
+    "seeAll": "すべて表示",
+    "home": "ホーム",
+    "tools": "ツール",
+    "cachedData": "キャッシュデータ"
+  },
+  "nav": {
+    "home": "ホーム",
+    "tools": "ツール",
+    "github": "GitHub",
+    "menu": "メニュー"
+  },
+  "home": {
+    "hero": {
+      "title": "無料ウェブツール",
+      "subtitle": "日常生活に便利なシンプルで高速、無料のオンラインツール",
+      "cta": "ツールを見る"
+    },
+    "features": {
+      "title": "なぜ私たちのツールを使うのか？",
+      "fast": {
+        "title": "高速＆簡単",
+        "description": "直感的なインターフェースで素早く作業を完了"
+      },
+      "secure": {
+        "title": "安全",
+        "description": "すべての処理はブラウザ内で行われます"
+      },
+      "free": {
+        "title": "100％無料",
+        "description": "隠れた料金なし、登録不要"
+      }
+    },
+    "popular": {
+      "title": "人気のツール"
+    }
+  },
+  "tools": {
+    "title": "すべてのツール",
+    "categories": {
+      "all": "すべて",
+      "text": "テキスト",
+      "generator": "ジェネレーター",
+      "network": "ネットワーク",
+      "security": "セキュリティ",
+      "converter": "コンバーター",
+      "developer": "開発者"
+    },
+    "searchPlaceholder": "ツールを検索...",
+    "noResults": "ツールが見つかりません",
+    "characterCounter": {
+      "title": "文字カウンター",
+      "description": "テキストの文字数、単語数、行数をリアルタイムでカウント",
+      "placeholder": "ここにテキストを入力するか貼り付けてください...",
+      "characters": "文字",
+      "charactersNoSpaces": "文字（スペース除く）",
+      "words": "単語",
+      "lines": "行",
+      "paragraphs": "段落",
+      "bytes": "バイト",
+      "readingTime": "読了時間",
+      "readingTimeValue": "{minutes}分 {seconds}秒",
+      "clear": "クリア",
+      "copy": "コピー",
+      "paste": "貼り付け",
+      "info": {
+        "title": "文字カウンターについて",
+        "item1": "入力中にリアルタイムで文字をカウント",
+        "item2": "様々なテキスト統計を表示",
+        "item3": "ソーシャルメディア、SEO、コンテンツ作成に便利",
+        "item4": "絵文字を含む多言語テキストに対応"
+      }
+    },
+    "myIp": {
+      "title": "私のIPアドレス",
+      "description": "公開IPアドレスと位置情報を確認",
+      "yourIp": "あなたのIPアドレス",
+      "country": "国",
+      "region": "地域",
+      "city": "都市",
+      "info": {
+        "title": "IPアドレスについて",
+        "item1": "これはウェブサイトから見えるあなたの公開IPアドレスです",
+        "item2": "異なるネットワークに接続するとIPアドレスが変わることがあります",
+        "item3": "プライバシーとセキュリティのためにVPNを使用してください",
+        "item4": "位置情報はIP地理位置情報に基づく概算です"
+      },
+      "cachedData": "キャッシュデータ"
+    },
+    "uuidGenerator": {
+      "title": "UUID生成",
+      "description": "様々なバージョンのユニバーサル一意識別子（UUID）を生成",
+      "generateButton": "UUID生成",
+      "generateMultiple": "{count}個のUUIDを生成",
+      "copyAll": "すべてコピー",
+      "clearAll": "すべてクリア",
+      "options": {
+        "title": "オプション",
+        "version": "UUIDバージョン",
+        "version4": "バージョン4（ランダム）",
+        "version1": "バージョン1（タイムスタンプ）",
+        "uppercase": "大文字",
+        "hyphens": "ハイフンを含む",
+        "quantity": "数量",
+        "namespace": "ネームスペースUUID",
+        "name": "名前"
+      },
+      "results": {
+        "title": "生成されたUUID"
+      },
+      "info": {
+        "title": "UUIDについて",
+        "item1": "UUIDは一意性が保証された128ビット識別子です",
+        "item2": "バージョン4はランダムまたは疑似ランダム数を使用",
+        "item3": "データベースや分散システムでよく使用されます",
+        "item4": "標準形式は8-4-4-4-12の16進数です"
+      }
+    },
+    "passwordGenerator": {
+      "title": "パスワード生成",
+      "description": "カスタマイズ可能なオプションで強力で安全なパスワードを生成",
+      "length": "長さ",
+      "generated": "生成されたパスワード",
+      "generateButton": "パスワード生成",
+      "copyButton": "コピー",
+      "copiedButton": "コピーしました！",
+      "strength": "強度",
+      "strengthLevels": {
+        "veryWeak": "非常に弱い",
+        "weak": "弱い",
+        "medium": "中程度",
+        "strong": "強い",
+        "veryStrong": "非常に強い"
+      },
+      "options": {
+        "title": "パスワードオプション",
+        "uppercase": "大文字 (A-Z)",
+        "lowercase": "小文字 (a-z)",
+        "numbers": "数字 (0-9)",
+        "symbols": "記号",
+        "symbolsLabel": "記号 (!{'@'}#$%...)",
+        "avoidAmbiguous": "紛らわしい文字を避ける",
+        "avoidAmbiguousLabel": "紛らわしい文字を避ける (0, O, l, 1)"
+      },
+      "info": {
+        "title": "パスワードセキュリティのヒント",
+        "item1": "強力なセキュリティのために最低12文字使用",
+        "item2": "大文字/小文字、数字、記号を組み合わせる",
+        "item3": "個人情報や一般的な単語を避ける",
+        "item4": "各アカウントに一意のパスワードを使用"
+      }
+    },
+    "hashGenerator": {
+      "title": "ハッシュ生成",
+      "description": "テキストから様々なハッシュ値を生成",
+      "input": "テキスト入力",
+      "inputPlaceholder": "ハッシュ化するテキストを入力...",
+      "output": "ハッシュ出力",
+      "generateButton": "ハッシュ生成",
+      "copyButton": "コピー",
+      "algorithm": "ハッシュアルゴリズム",
+      "algorithms": {
+        "md5": "MD5",
+        "sha1": "SHA-1",
+        "sha256": "SHA-256",
+        "sha384": "SHA-384",
+        "sha512": "SHA-512"
+      },
+      "info": {
+        "title": "ハッシュ関数について",
+        "item1": "ハッシュ関数はデータセキュリティのための一方向関数です",
+        "item2": "MD5とSHA-1はセキュリティ目的では非推奨です",
+        "item3": "SHA-256は現代のアプリケーションで広く使用されています",
+        "item4": "ハッシュ値は入力サイズに関係なく常に同じ長さです"
+      }
+    },
+    "qrGenerator": {
+      "title": "QRコード生成",
+      "description": "URL、テキストなどのQRコードを作成",
+      "input": "コンテンツ",
+      "inputPlaceholder": "URLまたはテキストを入力...",
+      "generateButton": "QRコード生成",
+      "downloadButton": "ダウンロード",
+      "size": "サイズ",
+      "errorLevel": "エラー訂正",
+      "errorLevels": {
+        "L": "低 (7%)",
+        "M": "中 (15%)",
+        "Q": "四分位 (25%)",
+        "H": "高 (30%)"
+      },
+      "colors": {
+        "title": "色",
+        "foreground": "前景",
+        "background": "背景"
+      },
+      "info": {
+        "title": "QRコードについて",
+        "item1": "QRコードは最大4,296文字の英数字を保存可能",
+        "item2": "高いエラー訂正により部分的に損傷したコードも読み取り可能",
+        "item3": "専用アプリなしでスマートフォンでスキャン可能",
+        "item4": "URL、WiFi、決済などに広く使用されています"
+      }
+    },
+    "wifiQr": {
+      "title": "WiFi QRコード",
+      "description": "簡単に共有できるWiFiネットワーク用のQRコードを生成",
+      "networkName": "ネットワーク名 (SSID)",
+      "networkNamePlaceholder": "WiFiネットワーク名を入力",
+      "password": "パスワード",
+      "passwordPlaceholder": "WiFiパスワードを入力",
+      "securityType": "セキュリティタイプ",
+      "securityTypes": {
+        "WPA": "WPA/WPA2",
+        "WEP": "WEP",
+        "nopass": "パスワードなし"
+      },
+      "hiddenNetwork": "隠しネットワーク",
+      "generateButton": "QRコード生成",
+      "downloadButton": "QRコードダウンロード",
+      "info": {
+        "title": "WiFi QRコードについて",
+        "item1": "パスワードを直接教えることなくWiFi認証情報を共有",
+        "item2": "ゲストはQRコードをスキャンして接続可能",
+        "item3": "iOSとAndroidデバイスで動作",
+        "item4": "WPA、WPA2、WEP、オープンネットワークをサポート"
+      }
+    }
+  },
+  "footer": {
+    "copyright": "© 2024 無料ウェブツール。全著作権所有。",
+    "privacy": "プライバシー",
+    "terms": "利用規約",
+    "github": "GitHub"
+  }
+}

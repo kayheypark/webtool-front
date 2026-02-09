@@ -8,14 +8,24 @@
 
 
 <url>
+  <loc>https://ssiat.link/</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
   <loc>https://ssiat.link/en</loc>
   <lastmod>2026-02-09T14:15:13+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://ssiat.link/en/tools</loc>
+  <loc>https://ssiat.link/de</loc>
   <lastmod>2026-02-09T14:15:13+00:00</lastmod>
-  <priority>0.80</priority>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://ssiat.link/ja</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
   <loc>https://ssiat.link/tools</loc>
@@ -23,42 +33,37 @@
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>https://ssiat.link/en/tools</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ssiat.link/de/tools</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ssiat.link/ja/tools</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ssiat.link/tools/character-counter</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
   <loc>https://ssiat.link/en/tools/character-counter</loc>
   <lastmod>2026-02-09T14:15:13+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://ssiat.link/en/tools/my-ip</loc>
+  <loc>https://ssiat.link/de/tools/character-counter</loc>
   <lastmod>2026-02-09T14:15:13+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://ssiat.link/en/tools/uuid-generator</loc>
-  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://ssiat.link/en/tools/password-generator</loc>
-  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://ssiat.link/en/tools/hash-generator</loc>
-  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://ssiat.link/en/tools/qr-generator</loc>
-  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://ssiat.link/en/tools/wifi-qr</loc>
-  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://ssiat.link/tools/character-counter</loc>
+  <loc>https://ssiat.link/ja/tools/character-counter</loc>
   <lastmod>2026-02-09T14:15:13+00:00</lastmod>
   <priority>0.64</priority>
 </url>
@@ -68,7 +73,37 @@
   <priority>0.64</priority>
 </url>
 <url>
+  <loc>https://ssiat.link/en/tools/my-ip</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ssiat.link/de/tools/my-ip</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ssiat.link/ja/tools/my-ip</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
   <loc>https://ssiat.link/tools/uuid-generator</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ssiat.link/en/tools/uuid-generator</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ssiat.link/de/tools/uuid-generator</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ssiat.link/ja/tools/uuid-generator</loc>
   <lastmod>2026-02-09T14:15:13+00:00</lastmod>
   <priority>0.64</priority>
 </url>
@@ -78,7 +113,37 @@
   <priority>0.64</priority>
 </url>
 <url>
+  <loc>https://ssiat.link/en/tools/password-generator</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ssiat.link/de/tools/password-generator</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ssiat.link/ja/tools/password-generator</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
   <loc>https://ssiat.link/tools/hash-generator</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ssiat.link/en/tools/hash-generator</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ssiat.link/de/tools/hash-generator</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ssiat.link/ja/tools/hash-generator</loc>
   <lastmod>2026-02-09T14:15:13+00:00</lastmod>
   <priority>0.64</priority>
 </url>
@@ -88,7 +153,37 @@
   <priority>0.64</priority>
 </url>
 <url>
+  <loc>https://ssiat.link/en/tools/qr-generator</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ssiat.link/de/tools/qr-generator</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ssiat.link/ja/tools/qr-generator</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
   <loc>https://ssiat.link/tools/wifi-qr</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ssiat.link/en/tools/wifi-qr</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ssiat.link/de/tools/wifi-qr</loc>
+  <lastmod>2026-02-09T14:15:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ssiat.link/ja/tools/wifi-qr</loc>
   <lastmod>2026-02-09T14:15:13+00:00</lastmod>
   <priority>0.64</priority>
 </url>

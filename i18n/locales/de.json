@@ -1,0 +1,276 @@
+{
+  "common": {
+    "title": "Kostenlose Web-Tools",
+    "description": "Einfache, schnelle und kostenlose Online-Tools für den Alltag",
+    "copy": "Kopieren",
+    "copied": "Kopiert",
+    "generate": "Generieren",
+    "clear": "Löschen",
+    "download": "Herunterladen",
+    "upload": "Hochladen",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "close": "Schließen",
+    "confirm": "Bestätigen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "search": "Suchen",
+    "settings": "Einstellungen",
+    "help": "Hilfe",
+    "about": "Über",
+    "contact": "Kontakt",
+    "privacy": "Datenschutz",
+    "terms": "Nutzungsbedingungen",
+    "language": "Sprache",
+    "loading": "Wird geladen...",
+    "error": "Fehler",
+    "success": "Erfolgreich",
+    "warning": "Warnung",
+    "info": "Info",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "finish": "Fertigstellen",
+    "reset": "Zurücksetzen",
+    "refresh": "Aktualisieren",
+    "retry": "Erneut versuchen",
+    "share": "Teilen",
+    "copyLink": "Link kopieren",
+    "linkCopied": "Link kopiert!",
+    "more": "Mehr",
+    "less": "Weniger",
+    "seeAll": "Alle anzeigen",
+    "home": "Startseite",
+    "tools": "Werkzeuge",
+    "cachedData": "Zwischengespeicherte Daten"
+  },
+  "nav": {
+    "home": "Startseite",
+    "tools": "Werkzeuge",
+    "github": "GitHub",
+    "menu": "Menü"
+  },
+  "home": {
+    "hero": {
+      "title": "Kostenlose Web-Tools",
+      "subtitle": "Einfache, schnelle und kostenlose Online-Tools für den Alltag",
+      "cta": "Werkzeuge erkunden"
+    },
+    "features": {
+      "title": "Warum unsere Werkzeuge verwenden?",
+      "fast": {
+        "title": "Schnell & Einfach",
+        "description": "Intuitive Benutzeroberfläche für schnelle Aufgabenerledigung"
+      },
+      "secure": {
+        "title": "Sicher",
+        "description": "Alle Verarbeitung erfolgt in Ihrem Browser"
+      },
+      "free": {
+        "title": "100% Kostenlos",
+        "description": "Keine versteckten Kosten, keine Registrierung erforderlich"
+      }
+    },
+    "popular": {
+      "title": "Beliebte Werkzeuge"
+    }
+  },
+  "tools": {
+    "title": "Alle Werkzeuge",
+    "categories": {
+      "all": "Alle",
+      "text": "Text",
+      "generator": "Generator",
+      "network": "Netzwerk",
+      "security": "Sicherheit",
+      "converter": "Konverter",
+      "developer": "Entwickler"
+    },
+    "searchPlaceholder": "Werkzeuge suchen...",
+    "noResults": "Keine Werkzeuge gefunden",
+    "characterCounter": {
+      "title": "Zeichenzähler",
+      "description": "Zählen Sie Zeichen, Wörter und Zeilen in Ihrem Text in Echtzeit",
+      "placeholder": "Geben Sie Ihren Text hier ein oder fügen Sie ihn ein...",
+      "characters": "Zeichen",
+      "charactersNoSpaces": "Zeichen (ohne Leerzeichen)",
+      "words": "Wörter",
+      "lines": "Zeilen",
+      "paragraphs": "Absätze",
+      "bytes": "Bytes",
+      "readingTime": "Lesezeit",
+      "readingTimeValue": "{minutes} Min. {seconds} Sek.",
+      "clear": "Löschen",
+      "copy": "Kopieren",
+      "paste": "Einfügen",
+      "info": {
+        "title": "Über den Zeichenzähler",
+        "item1": "Zählt Zeichen in Echtzeit während der Eingabe",
+        "item2": "Zeigt verschiedene Textstatistiken an",
+        "item3": "Nützlich für soziale Medien, SEO und Inhaltserstellung",
+        "item4": "Unterstützt mehrsprachigen Text einschließlich Emojis"
+      }
+    },
+    "myIp": {
+      "title": "Meine IP-Adresse",
+      "description": "Überprüfen Sie Ihre öffentliche IP-Adresse und Standortinformationen",
+      "yourIp": "Ihre IP-Adresse",
+      "country": "Land",
+      "region": "Region",
+      "city": "Stadt",
+      "info": {
+        "title": "Über IP-Adressen",
+        "item1": "Dies ist Ihre öffentliche IP-Adresse, die von Websites gesehen wird",
+        "item2": "Ihre IP-Adresse kann sich ändern, wenn Sie sich mit einem anderen Netzwerk verbinden",
+        "item3": "Verwenden Sie VPN für Privatsphäre und Sicherheit",
+        "item4": "Standortinformationen sind ungefähre Angaben basierend auf der IP-Geolokalisierung"
+      },
+      "cachedData": "Zwischengespeicherte Daten"
+    },
+    "uuidGenerator": {
+      "title": "UUID Generator",
+      "description": "Generieren Sie universell eindeutige Bezeichner (UUIDs) verschiedener Versionen",
+      "generateButton": "UUID generieren",
+      "generateMultiple": "{count} UUIDs generieren",
+      "copyAll": "Alle kopieren",
+      "clearAll": "Alle löschen",
+      "options": {
+        "title": "Optionen",
+        "version": "UUID-Version",
+        "version4": "Version 4 (Zufällig)",
+        "version1": "Version 1 (Zeitstempel)",
+        "uppercase": "Großbuchstaben",
+        "hyphens": "Bindestriche einbeziehen",
+        "quantity": "Anzahl",
+        "namespace": "Namespace UUID",
+        "name": "Name"
+      },
+      "results": {
+        "title": "Generierte UUIDs"
+      },
+      "info": {
+        "title": "Über UUIDs",
+        "item1": "UUIDs sind 128-Bit-Bezeichner, die garantiert eindeutig sind",
+        "item2": "Version 4 verwendet zufällige oder pseudo-zufällige Zahlen",
+        "item3": "Häufig verwendet in Datenbanken und verteilten Systemen",
+        "item4": "Das Standardformat ist 8-4-4-4-12 Hexadezimalziffern"
+      }
+    },
+    "passwordGenerator": {
+      "title": "Passwort-Generator",
+      "description": "Generieren Sie starke, sichere Passwörter mit anpassbaren Optionen",
+      "length": "Länge",
+      "generated": "Generiertes Passwort",
+      "generateButton": "Passwort generieren",
+      "copyButton": "Kopieren",
+      "copiedButton": "Kopiert!",
+      "strength": "Stärke",
+      "strengthLevels": {
+        "veryWeak": "Sehr schwach",
+        "weak": "Schwach",
+        "medium": "Mittel",
+        "strong": "Stark",
+        "veryStrong": "Sehr stark"
+      },
+      "options": {
+        "title": "Passwortoptionen",
+        "uppercase": "Großbuchstaben (A-Z)",
+        "lowercase": "Kleinbuchstaben (a-z)",
+        "numbers": "Zahlen (0-9)",
+        "symbols": "Symbole",
+        "symbolsLabel": "Symbole (!{'@'}#$%...)",
+        "avoidAmbiguous": "Mehrdeutige Zeichen vermeiden",
+        "avoidAmbiguousLabel": "Mehrdeutige Zeichen vermeiden (0, O, l, 1)"
+      },
+      "info": {
+        "title": "Passwort-Sicherheitstipps",
+        "item1": "Verwenden Sie mindestens 12 Zeichen für starke Sicherheit",
+        "item2": "Mischen Sie Groß-/Kleinbuchstaben, Zahlen und Symbole",
+        "item3": "Vermeiden Sie persönliche Informationen und gängige Wörter",
+        "item4": "Verwenden Sie für jedes Konto eindeutige Passwörter"
+      }
+    },
+    "hashGenerator": {
+      "title": "Hash-Generator",
+      "description": "Generieren Sie verschiedene Hash-Werte aus Ihrem Text",
+      "input": "Text eingeben",
+      "inputPlaceholder": "Geben Sie Text zum Hashen ein...",
+      "output": "Hash-Ausgabe",
+      "generateButton": "Hash generieren",
+      "copyButton": "Kopieren",
+      "algorithm": "Hash-Algorithmus",
+      "algorithms": {
+        "md5": "MD5",
+        "sha1": "SHA-1",
+        "sha256": "SHA-256",
+        "sha384": "SHA-384",
+        "sha512": "SHA-512"
+      },
+      "info": {
+        "title": "Über Hash-Funktionen",
+        "item1": "Hash-Funktionen sind Einwegfunktionen zur Datensicherheit",
+        "item2": "MD5 und SHA-1 gelten als veraltet für Sicherheitszwecke",
+        "item3": "SHA-256 ist weit verbreitet für moderne Anwendungen",
+        "item4": "Hash-Werte sind immer gleich lang, unabhängig von der Eingabegröße"
+      }
+    },
+    "qrGenerator": {
+      "title": "QR-Code Generator",
+      "description": "Erstellen Sie QR-Codes für URLs, Text und mehr",
+      "input": "Inhalt",
+      "inputPlaceholder": "Geben Sie URL oder Text ein...",
+      "generateButton": "QR-Code generieren",
+      "downloadButton": "Herunterladen",
+      "size": "Größe",
+      "errorLevel": "Fehlerkorrektur",
+      "errorLevels": {
+        "L": "Niedrig (7%)",
+        "M": "Mittel (15%)",
+        "Q": "Quartil (25%)",
+        "H": "Hoch (30%)"
+      },
+      "colors": {
+        "title": "Farben",
+        "foreground": "Vordergrund",
+        "background": "Hintergrund"
+      },
+      "info": {
+        "title": "Über QR-Codes",
+        "item1": "QR-Codes können bis zu 4.296 alphanumerische Zeichen speichern",
+        "item2": "Höhere Fehlerkorrektur ermöglicht teilweise beschädigte Codes zu lesen",
+        "item3": "Mit Smartphones ohne spezielle App scanbar",
+        "item4": "Weit verbreitet für URLs, WiFi, Zahlungen und mehr"
+      }
+    },
+    "wifiQr": {
+      "title": "WiFi QR-Code",
+      "description": "Generieren Sie QR-Codes für WiFi-Netzwerke zum einfachen Teilen",
+      "networkName": "Netzwerkname (SSID)",
+      "networkNamePlaceholder": "Geben Sie den WiFi-Netzwerknamen ein",
+      "password": "Passwort",
+      "passwordPlaceholder": "Geben Sie das WiFi-Passwort ein",
+      "securityType": "Sicherheitstyp",
+      "securityTypes": {
+        "WPA": "WPA/WPA2",
+        "WEP": "WEP",
+        "nopass": "Kein Passwort"
+      },
+      "hiddenNetwork": "Verstecktes Netzwerk",
+      "generateButton": "QR-Code generieren",
+      "downloadButton": "QR-Code herunterladen",
+      "info": {
+        "title": "Über WiFi QR-Codes",
+        "item1": "Teilen Sie WiFi-Zugangsdaten ohne das Passwort preiszugeben",
+        "item2": "Gäste können sich durch Scannen des QR-Codes verbinden",
+        "item3": "Funktioniert mit iOS- und Android-Geräten",
+        "item4": "Unterstützt WPA, WPA2, WEP und offene Netzwerke"
+      }
+    }
+  },
+  "footer": {
+    "copyright": "© 2024 Kostenlose Web-Tools. Alle Rechte vorbehalten.",
+    "privacy": "Datenschutz",
+    "terms": "Nutzungsbedingungen",
+    "github": "GitHub"
+  }
+}

@@ -9,7 +9,7 @@ export const useI18nHelper = () => {
 
   // 로케일 변경 함수
   const changeLocale = (newLocale: string) => {
-    setLocale(newLocale as 'ko' | 'en')
+    setLocale(newLocale as 'ko' | 'en' | 'de' | 'ja')
   }
 
   // 현재 로케일 라벨 가져오기
@@ -23,7 +23,7 @@ export const useI18nHelper = () => {
     const currentIndex = locales.value.findIndex((l: { code: string }) => l.code === locale.value)
     const nextIndex = (currentIndex + 1) % locales.value.length
     const nextLocale = locales.value[nextIndex]
-    setLocale(nextLocale?.code as 'ko' | 'en')
+    setLocale(nextLocale?.code as 'ko' | 'en' | 'de' | 'ja')
   }
 
   return {
